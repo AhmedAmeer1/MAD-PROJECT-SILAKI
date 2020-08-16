@@ -56,7 +56,7 @@
         android:layout_marginLeft="37dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="92dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:text="SIGN UP" />
 
     <Button
@@ -70,7 +70,7 @@
         android:layout_marginEnd="43dp"
         android:layout_marginRight="43dp"
         android:layout_marginBottom="93dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:text="SIGN IN"
         android:textColor="#201D1D" />
 

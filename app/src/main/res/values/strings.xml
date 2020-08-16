@@ -5,4 +5,13 @@
     <string name="title_promotion">Promotion</string>
     <string name="title_user">User</string>
     <string name="title_cart">Cart</string>
+
+    <string name="msg1">Email</string>
+    <string name="msg2">Password</string>
+    <string name="msg3">Number</string>
+    <string name="msg4">Address</string>
+    <string name="msg5">Cart</string>
+    <string name="msg6">CREATE ACCOUNT</string>
+    <string name="msg7">Cart</string>
+
 </resources>

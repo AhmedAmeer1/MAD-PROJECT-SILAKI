@@ -16,8 +16,17 @@ public class welcome extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
 
+        Button signup =(Button)findViewById(R.id.buttonup);
         Button signin =(Button)findViewById(R.id.button2in);
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent packageContent = null;
+                Intent intent= new Intent(welcome.this,Signup.class);
+                startActivity(intent);
+            }
+        });
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,7 +36,6 @@ public class welcome extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
 
 
 
