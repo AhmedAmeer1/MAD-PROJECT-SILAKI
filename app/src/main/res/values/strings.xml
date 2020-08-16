@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PharmEasy</string>
+    <string name="title_home">Home</string>
+    <string name="title_products">Products</string>
+    <string name="title_promotion">Promotion</string>
+    <string name="title_user">User</string>
+    <string name="title_cart">Cart</string>
+</resources>
