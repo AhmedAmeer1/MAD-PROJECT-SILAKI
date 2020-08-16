@@ -23,13 +23,8 @@ public class PromotionFragment extends Fragment {
         PromotionViewModel =
                 ViewModelProviders.of(this).get(PromotionViewModel.class);
         View root = inflater.inflate(R.layout.fragment_promotion, container, false);
-        final TextView textView = root.findViewById(R.id.text_notification);
-        PromotionViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+
         return root;
     }
 }
