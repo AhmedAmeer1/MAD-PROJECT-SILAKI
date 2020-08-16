@@ -4,19 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Promotion.PromotionFragment">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_notification"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ImageView
+        android:layout_width="329dp"
+        android:layout_height="349dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="403dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:onClick="LaunchContact"
+        android:src="@drawable/last"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="899dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginBottom="437dp"
+        android:src="@drawable/photoshop3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="414dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="307dp"
+        android:layout_marginBottom="248dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/newcopon2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
