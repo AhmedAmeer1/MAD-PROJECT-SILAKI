@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".payment_update"></activity>
+        <activity android:name=".UpdateRemoveAddress"></activity>
+        <activity android:name=".OrderConfirmation" />
+        <activity android:name=".Address" />
+        <activity android:name=".checkout" />
+        <activity android:name=".payment_update" />
         <activity android:name=".feedback" />
         <activity android:name=".personal_details" />
         <activity android:name=".Signup" />
