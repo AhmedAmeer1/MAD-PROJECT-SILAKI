@@ -2,6 +2,7 @@ package com.example.pharmeasy.ui.cart;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +12,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.pharmeasy.R;
+import com.example.pharmeasy.checkout;
+import com.example.pharmeasy.personal_details;
 
 public class CartFragment extends Fragment {
 
@@ -25,7 +29,22 @@ public class CartFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+
+       // return inflater.inflate(R.layout.fragment_cart, container, false);
+
+        View v= inflater.inflate(R.layout.fragment_cart, container, false);
+
+
+      // cart details
+        Button b1=(Button)v.findViewById(R.id.button3);
+        b1.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {               startActivity(new Intent(getActivity(), checkout.class));
+            }
+        });
+
+        return v;
+
     }
 
     @Override
