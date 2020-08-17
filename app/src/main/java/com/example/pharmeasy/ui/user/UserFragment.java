@@ -14,9 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.pharmeasy.ContactUs;
 import com.example.pharmeasy.R;
 import com.example.pharmeasy.SignIn;
 import com.example.pharmeasy.Signup;
+import com.example.pharmeasy.UpdateRemoveAddress;
 import com.example.pharmeasy.feedback;
 import com.example.pharmeasy.payment_update;
 import com.example.pharmeasy.personal_details;
@@ -73,6 +75,28 @@ public class UserFragment extends Fragment {
                 startActivity(new Intent(getActivity(), payment_update.class));
             }
         });
+
+
+        //contact us
+        Button b3=(Button)v.findViewById(R.id.button3);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ContactUs.class));
+            }
+        });
+
+
+        //delivery details
+        Button b2=(Button)v.findViewById(R.id.button2);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), UpdateRemoveAddress.class));
+            }
+        });
+
+
 
 
 
