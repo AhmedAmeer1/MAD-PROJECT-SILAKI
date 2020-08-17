@@ -87,16 +87,25 @@ public class UserFragment extends Fragment {
         });
 
 
+//        //delivery details
+//        Button b2=(Button)v.findViewById(R.id.button2);
+//        b2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getActivity(), UpdateRemoveAddress.class));
+//            }
+//        });
+//
+
+
         //delivery details
-        Button b2=(Button)v.findViewById(R.id.button2);
-        b2.setOnClickListener(new View.OnClickListener() {
+        Button BTN1112=(Button)v.findViewById(R.id.button2);
+        BTN1112.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), UpdateRemoveAddress.class));
             }
         });
-
-
 
 
 
