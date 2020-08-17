@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">PharmEasy</string>
+    <string name="app_name">SRI Pharmacy</string>
     <string name="title_home">Home</string>
     <string name="title_products">Products</string>
     <string name="title_promotion">Promotion</string>
     <string name="title_user">User</string>
     <string name="title_cart">Cart</string>
+
+
 
     <string name="msg1">Email</string>
     <string name="msg2">Password</string>
@@ -12,6 +14,16 @@
     <string name="msg4">Address</string>
     <string name="msg5">Cart</string>
     <string name="msg6">CREATE ACCOUNT</string>
-    <string name="msg7">Cart</string>
+    <string name="feedback">We want to know what you thought of your experience at SRI-PHARMACY.So we d love to hear your feedback . </string>
+    <string name="login">login</string>
+    <string name="signin">SIGNIN</string>
+    <string name="signup">SIGNUP</string>
+    <string name="welcome">WELCOME</string>
+
+
+    <string name="card_number">Card Number</string>
+    <string name="name">CardHolder Name</string>
+    <string name="date">Expire Date</string>
+    <string name="cvv">CVV</string>
 
 </resources>
