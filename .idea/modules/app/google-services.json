@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "319460420967",
+    "firebase_url": "https://pharmeasy-d7c1d.firebaseio.com",
+    "project_id": "pharmeasy-d7c1d",
+    "storage_bucket": "pharmeasy-d7c1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319460420967:android:941d378bb1b044bd0b53c2",
+        "android_client_info": {
+          "package_name": "com.example.pharmeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319460420967-gvtrgq6crtn1l1cb1sko2o2on524tlo7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pharmeasy",
+            "certificate_hash": "751b4b10d6588ba631077393e96c82dd3ab47f83"
+          }
+        },
+        {
+          "client_id": "319460420967-a98sa2i3a84k24n3ha2fvddfr6d6v81b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD2I0ySBSceNNLnI3NuF12mtfWOjZyM1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319460420967-a98sa2i3a84k24n3ha2fvddfr6d6v81b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
