@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/card1" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnDeletePayment"
         android:layout_width="172dp"
         android:layout_height="52dp"
         android:layout_marginStart="11dp"
@@ -94,59 +94,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/num1"
-        android:layout_width="56dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="197dp"
-        android:layout_marginLeft="197dp"
-        android:layout_marginTop="343dp"
-        android:layout_marginBottom="362dp"
-        android:ems="10"
-        android:hint="@string/msg1"
-        android:inputType="textPersonName"
-        android:textColor="#4E4A4A"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/num2"
-        android:layout_width="56dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="263dp"
-        android:layout_marginLeft="263dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginRight="92dp"
-        android:layout_marginBottom="361dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="xxxx"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/num3"
-        android:layout_width="56dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="333dp"
-        android:layout_marginLeft="333dp"
-        android:layout_marginTop="344dp"
-        android:layout_marginBottom="361dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="xxxx"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/cardholder_name"
-        android:layout_width="164dp"
-        android:layout_height="26dp"
+        android:layout_width="191dp"
+        android:layout_height="40dp"
         android:layout_marginStart="199dp"
         android:layout_marginLeft="199dp"
         android:layout_marginTop="384dp"
@@ -155,7 +105,6 @@
         android:layout_marginBottom="321dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,36 +112,34 @@
 
     <EditText
         android:id="@+id/exp_date"
-        android:layout_width="56dp"
-        android:layout_height="26dp"
+        android:layout_width="70dp"
+        android:layout_height="54dp"
         android:layout_marginStart="197dp"
         android:layout_marginLeft="197dp"
         android:layout_marginTop="424dp"
         android:layout_marginBottom="281dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cvv"
-        android:layout_width="56dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="197dp"
-        android:layout_marginLeft="197dp"
-        android:layout_marginTop="460dp"
-        android:layout_marginBottom="245dp"
+        android:id="@+id/cvvupdate"
+        android:layout_width="65dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="467dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginRight="149dp"
+        android:layout_marginBottom="222dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnUpdateP"
         android:layout_width="150dp"
         android:layout_height="52dp"
         android:layout_marginStart="232dp"
@@ -202,6 +149,20 @@
         android:background="@color/colorPrimary"
         android:text="Update"
         android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="197dp"
+        android:layout_marginLeft="197dp"
+        android:layout_marginTop="332dp"
+        android:layout_marginBottom="354dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -17,12 +17,10 @@ import android.widget.Button;
 import com.example.pharmeasy.ContactUs;
 import com.example.pharmeasy.R;
 import com.example.pharmeasy.SignIn;
-import com.example.pharmeasy.Signup;
 import com.example.pharmeasy.UpdateRemoveAddress;
 import com.example.pharmeasy.feedback;
 import com.example.pharmeasy.payment_update;
 import com.example.pharmeasy.personal_details;
-import com.example.pharmeasy.welcome;
 
 public class UserFragment extends Fragment {
 
@@ -41,7 +39,7 @@ public class UserFragment extends Fragment {
 
 
         //personal details
-        Button b1=(Button)v.findViewById(R.id.button);
+        Button b1=(Button)v.findViewById(R.id.accountsettings);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +66,7 @@ public class UserFragment extends Fragment {
         });
 
 
-        Button b13=(Button)v.findViewById(R.id.button13);
+        Button b13=(Button)v.findViewById(R.id.btnShowPayment);
         b13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +76,7 @@ public class UserFragment extends Fragment {
 
 
         //contact us
-        Button b3=(Button)v.findViewById(R.id.button3);
+        Button b3=(Button)v.findViewById(R.id.accountcontactus);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,19 +85,12 @@ public class UserFragment extends Fragment {
         });
 
 
-//        //delivery details
-//        Button b2=(Button)v.findViewById(R.id.button2);
-//        b2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getActivity(), UpdateRemoveAddress.class));
-//            }
-//        });
+
 //
 
 
         //delivery details
-        Button BTN1112=(Button)v.findViewById(R.id.button2);
+        Button BTN1112=(Button)v.findViewById(R.id.btnShow);
         BTN1112.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

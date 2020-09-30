@@ -179,7 +179,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnPlaceOrder"
         android:layout_width="168dp"
         android:layout_height="43dp"
         android:layout_marginStart="121dp"
@@ -196,7 +196,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnDeletePayment"
         android:layout_width="387dp"
         android:layout_height="67dp"
         android:layout_marginStart="12dp"
