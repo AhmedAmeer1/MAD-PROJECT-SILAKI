@@ -44,6 +44,11 @@
     <string name="textView9">Items : 2</string>
     <string name="textView10">Subtotal : Rs.300</string>
     <string name="radioButton">Pamankada</string>
+    <string name="Discount">Discount</string>
+    <string name="Final_Payment">Final Payment</string>
+    <string name="CONFIRM">CONFIRM</string>
+    <string name="Delivery_Address">Delivery Address</string>
+    <string name="Address">Address</string>
 
 
 </resources>

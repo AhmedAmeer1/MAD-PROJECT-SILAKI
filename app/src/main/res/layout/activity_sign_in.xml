@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3EBF2"
+    android:background="@color/colorButton"
     tools:context=".SignIn">
 
 
@@ -25,7 +25,7 @@
         tools:srcCompat="@drawable/bb" />
 
     <EditText
-        android:id="@+id/uname"
+        android:id="@+id/logMail"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -47,7 +47,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/logPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -96,5 +96,21 @@
         android:text="create account"
         android:textColor="#180D1A"
         android:textSize="20dp" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="517dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </RelativeLayout>

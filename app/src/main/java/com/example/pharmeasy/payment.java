@@ -14,7 +14,7 @@ public class payment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        Button btn2 =(Button)findViewById(R.id.button2);
+        Button btn2 =(Button)findViewById(R.id.butUpdate);
 
 
         btn2.setOnClickListener(new View.OnClickListener() {

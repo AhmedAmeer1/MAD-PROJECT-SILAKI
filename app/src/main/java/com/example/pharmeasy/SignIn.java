@@ -1,41 +1,75 @@
 package com.example.pharmeasy;
 
+
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignIn extends AppCompatActivity {
 
+    EditText  email,password;
+    Button  logBtn;
+    FirebaseAuth fAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        Button signin =(Button)findViewById(R.id.login);
+        email=findViewById(R.id.logMail);
+        password=findViewById(R.id.logPassword);
+        fAuth=FirebaseAuth.getInstance();
+
+        logBtn=findViewById(R.id.login);
+        progressBar=findViewById(R.id.progressBar);
 
 
-        signin.setOnClickListener(new View.OnClickListener() {
+
+        logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent packageContent = null;
-                Intent intent1= new Intent(SignIn.this,MainActivity.class);
-                startActivity(intent1);
+                String Email=email.getText().toString().trim();
+                String  Password=password.getText().toString().trim();
+
+                if(TextUtils.isEmpty(Email)){
+                    email.setError("Please enter the email..");
+                    return;
+                }
+                if(TextUtils.isEmpty(Password)){
+                    password.setError("Please enter the password");
+                    return;
+                }
+                progressBar.setVisibility(view.VISIBLE);
+                fAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            Toast.makeText(getApplicationContext(), "login successful", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"login Unsuccessful",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
-        });////
-
-
-
-
-
-
-
-
-
-
+        });
 
     }
 }

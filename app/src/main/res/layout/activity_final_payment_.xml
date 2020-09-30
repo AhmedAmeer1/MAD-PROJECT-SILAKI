@@ -124,7 +124,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
+    <TextView
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
         android:layout_marginLeft="69dp"
         android:layout_marginTop="325dp"
         android:layout_marginBottom="374dp"
-        android:text="@string/radioButton"
+        android:text="@string/Discount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -179,23 +179,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/butDelete"
-        android:layout_width="168dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginLeft="121dp"
-        android:layout_marginTop="486dp"
-        android:layout_marginBottom="202dp"
-        android:background="@drawable/button"
-        android:onClick="ActivityTwo"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:text="@string/button"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/butUpdate"
         android:layout_width="387dp"
         android:layout_height="67dp"
@@ -221,7 +204,7 @@
         android:layout_marginBottom="624dp"
         android:autoText="false"
         android:background="#8ABF1AD1"
-        android:text="@string/textView2"
+        android:text="@string/Final_Payment"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
