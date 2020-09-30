@@ -6,7 +6,7 @@ public class Delivery {
     private String state;
     private String city;
     private Integer postalcode;
-    private Integer deliverydate;
+    private String deliverydate;
 
     public Delivery() {
     }
@@ -43,11 +43,11 @@ public class Delivery {
         this.postalcode = postalcode;
     }
 
-    public Integer getDeliverydate() {
+    public String getDeliverydate() {
         return deliverydate;
     }
 
-    public void setDeliverydate(Integer deliverydate) {
+    public void setDeliverydate(String deliverydate) {
         this.deliverydate = deliverydate;
     }
 }

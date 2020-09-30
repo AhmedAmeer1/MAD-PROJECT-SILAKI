@@ -81,7 +81,7 @@ public class UpdateRemoveAddress extends AppCompatActivity {
                                 d.setState(txtState.getText().toString().trim());
                                 d.setCity(txtCity.getText().toString().trim());
                                 d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
-                                d.setDeliverydate(Integer.parseInt(txtDate.getText().toString().trim()));
+                                d.setDeliverydate(txtDate.getText().toString().trim());
 
                                 db = FirebaseDatabase.getInstance().getReference().child("Delivery").child("D1");
                                 db.setValue(d);

@@ -50,6 +50,8 @@
     <string name="hintpostal">Postal Code</string>
     <string name="hintdelivery">Expected Delivery Date</string>
     <string name="hintdate">Expected Delivery Date</string>
+    <string name="ettdate">Expected Delivery Date</string>
+    <string name="etdate">Expected Delivery Date</string>
 
 
 </resources>

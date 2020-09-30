@@ -45,15 +45,7 @@ public class Address extends AppCompatActivity {
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
         txtDate = findViewById(R.id.date);
-        final Calendar calender = Calendar.getInstance();
 
-        txtDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final  Calendar calender = Calendar.getInstance();
-                
-            }
-        });
 
         butSave = findViewById(R.id.btnSave);
 
@@ -84,7 +76,7 @@ public class Address extends AppCompatActivity {
                         d.setState(txtState.getText().toString().trim());
                         d.setCity(txtCity.getText().toString().trim());
                         d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
-                        d.setDeliverydate(Integer.parseInt(txtDate.getText().toString().trim()));
+                        d.setDeliverydate(txtDate.getText().toString().trim());
 
                         db.push().setValue(d);
                         db.child("D1").setValue(d);
