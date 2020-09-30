@@ -7,6 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".Address">
 
+
     <ImageView
         android:layout_width="426dp"
         android:layout_height="99dp"
@@ -45,7 +46,7 @@
         android:layout_marginTop="585dp"
         android:layout_marginBottom="124dp"
         android:background="@drawable/button"
-        android:onClick="gotopayment"
+        android:onClick="backtocheckout"
         android:text="CANCEL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

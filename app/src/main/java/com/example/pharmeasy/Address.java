@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 
 public class Address extends AppCompatActivity {
 
@@ -22,11 +24,11 @@ public class Address extends AppCompatActivity {
         startActivity(i);
     }
 
-//    public void backtocheckout(View v){
-//        Intent packageContent = null;
-//        Intent i1 = new Intent(this,checkout.class);
-//        startActivity(i1);
-//    }
+    public void backtocheckout(View v){
+        Intent packageContent = null;
+        Intent i1 = new Intent(this,checkout.class);
+        startActivity(i1);
+    }
 
     EditText txtAddress,txtState,txtCity,txtPostal,txtDate;
     Button butSave,butShow,butUpdate,butDelete;
@@ -43,6 +45,15 @@ public class Address extends AppCompatActivity {
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
         txtDate = findViewById(R.id.date);
+        final Calendar calender = Calendar.getInstance();
+
+        txtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final  Calendar calender = Calendar.getInstance();
+                
+            }
+        });
 
         butSave = findViewById(R.id.btnSave);
 
