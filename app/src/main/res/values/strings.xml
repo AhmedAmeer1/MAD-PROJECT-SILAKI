@@ -49,6 +49,9 @@
     <string name="CONFIRM">CONFIRM</string>
     <string name="Delivery_Address">Delivery Address</string>
     <string name="Address">Address</string>
+    <string name="amt">amt</string>
+    <string name="jj">Total : Rs.400</string>
+    <string name="ff">Total : Rs.400</string>
 
 
 </resources>

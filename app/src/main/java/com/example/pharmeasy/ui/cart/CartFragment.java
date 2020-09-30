@@ -16,7 +16,6 @@ import android.widget.Button;
 
 import com.example.pharmeasy.R;
 import com.example.pharmeasy.checkout;
-import com.example.pharmeasy.personal_details;
 
 public class CartFragment extends Fragment {
 
@@ -36,10 +35,11 @@ public class CartFragment extends Fragment {
 
 
       // cart details
-        Button b1=(Button)v.findViewById(R.id.button3);
-        b1.setOnClickListener(new View.OnClickListener() {
+        Button place_your_order=(Button)v.findViewById(R.id.btnSave);
+        place_your_order.setOnClickListener(new View.OnClickListener() {
           @Override
-          public void onClick(View view) {               startActivity(new Intent(getActivity(), checkout.class));
+          public void onClick(View view) {
+              startActivity(new Intent(getActivity(), checkout.class));
             }
         });
 

@@ -83,7 +83,7 @@ public class UserFragment extends Fragment {
 
 
         //contact us
-        Button b3=(Button)v.findViewById(R.id.button3);
+        Button b3=(Button)v.findViewById(R.id.btnSave);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +104,7 @@ public class UserFragment extends Fragment {
 
 
         //delivery details
-        Button BTN1112=(Button)v.findViewById(R.id.butUpdate);
+        Button BTN1112=(Button)v.findViewById(R.id.btnSavePayment);
         BTN1112.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

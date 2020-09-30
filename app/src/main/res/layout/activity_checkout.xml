@@ -138,7 +138,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="257dp"
@@ -165,14 +165,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/famt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="271dp"
         android:layout_marginLeft="271dp"
         android:layout_marginTop="388dp"
         android:layout_marginBottom="324dp"
-        android:text="Total : Rs.400"
+        android:hint="@string/jj"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -196,7 +196,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/butUpdate"
+        android:id="@+id/btnSavePayment"
         android:layout_width="387dp"
         android:layout_height="67dp"
         android:layout_marginStart="12dp"

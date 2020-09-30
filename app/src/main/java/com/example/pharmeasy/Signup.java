@@ -52,7 +52,9 @@ public class Signup extends AppCompatActivity {
         regBtn=findViewById(R.id.buttonup);
         fAuth=FirebaseAuth.getInstance();
         if(fAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+           // startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+            Intent i=new Intent(this, MainActivity.class);
         }
 
         regBtn.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +84,11 @@ public class Signup extends AppCompatActivity {
                     address.setError("Please enter address!!");
                     return;
                }
+
+                if(Phone.length()!=10){
+                    phone.setError("phone number must have 10 digits");
+                    return;
+                }
 
 
 

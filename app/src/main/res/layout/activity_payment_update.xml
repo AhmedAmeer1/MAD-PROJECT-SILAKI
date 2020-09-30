@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/card1" />
 
     <Button
-        android:id="@+id/butUpdate"
+        android:id="@+id/btnSavePayment"
         android:layout_width="172dp"
         android:layout_height="52dp"
         android:layout_marginStart="11dp"

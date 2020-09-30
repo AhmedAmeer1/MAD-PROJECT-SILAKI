@@ -88,7 +88,7 @@
         android:inputType="textPostalAddress" />
 
     <Button
-        android:id="@+id/butUpdate"
+        android:id="@+id/btnSavePayment"
         android:layout_width="166dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"

@@ -12,8 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,12 +42,13 @@ public class personal_details extends AppCompatActivity {
         address=findViewById(R.id.address);
         number=findViewById(R.id.number);
 
-        butUpdate = findViewById(R.id.butUpdate);
+        butUpdate = findViewById(R.id.btnSavePayment);
         butDelete = findViewById(R.id.butDelete);
 
+        fAuth=FirebaseAuth.getInstance();
+        String uid =fAuth.getCurrentUser().getUid();
 
-
-        DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Register").child("reg1");
+        DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
         readRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -57,7 +56,7 @@ public class personal_details extends AppCompatActivity {
                     email.setText(dataSnapshot.child("email").getValue().toString());
                     password.setText(dataSnapshot.child("password").getValue().toString());
                     address.setText(dataSnapshot.child("address").getValue().toString());
-                    number.setText(dataSnapshot.child("contact_number").getValue().toString());
+                   number.setText(dataSnapshot.child("contact_number").getValue().toString());
                 }
                 else
                     Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
@@ -85,20 +84,26 @@ public class personal_details extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
+
                 DatabaseReference updRef = FirebaseDatabase.getInstance().getReference().child("Register");
                 updRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        fAuth=FirebaseAuth.getInstance();
+                        String uid =fAuth.getCurrentUser().getUid();
 
-                        if(dataSnapshot.hasChild("reg1")) {
+                        if(dataSnapshot.hasChild(uid)) {
 
                             try {
+                                register.setId(fAuth.getCurrentUser().getUid());
                                 register.setEmail(email.getText().toString().trim());
                                 register.setPassword(password.getText().toString().trim());
                                 register.setAddress(address.getText().toString().trim());
                                 register.setContact_number(Integer.parseInt(number.getText().toString().trim()));
 
-                                dbRef = FirebaseDatabase.getInstance().getReference().child("Register").child("reg1");
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
                                 dbRef.setValue(register);
                                 clearControls();
 
@@ -130,7 +135,10 @@ public class personal_details extends AppCompatActivity {
         butDelete.setOnClickListener(new View.OnClickListener() {
           @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Register").child("reg1");
+              fAuth=FirebaseAuth.getInstance();
+              String uid =fAuth.getCurrentUser().getUid();
+
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
                 dbRef.removeValue();
                 Toast.makeText(getApplicationContext(),"sucessfully deleted",Toast.LENGTH_SHORT).show();
 

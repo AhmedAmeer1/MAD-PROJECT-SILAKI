@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.301" />
 
     <Button
-        android:id="@+id/butUpdate"
+        android:id="@+id/btnSavePayment"
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:background="#8ABF1AD1"
@@ -83,7 +83,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnSave"
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
