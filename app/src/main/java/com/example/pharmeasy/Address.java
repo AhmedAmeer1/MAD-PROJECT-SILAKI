@@ -1,12 +1,15 @@
 package com.example.pharmeasy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewPropertyAnimatorUpdateListener;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,6 +38,8 @@ public class Address extends AppCompatActivity {
     DatabaseReference db;
     Delivery d;
 
+    int mYear,mMonth,mDay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,7 @@ public class Address extends AppCompatActivity {
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
         txtDate = findViewById(R.id.date);
-
+        final Calendar calender = Calendar.getInstance();
 
         butSave = findViewById(R.id.btnSave);
 
@@ -53,6 +58,24 @@ public class Address extends AppCompatActivity {
         butDelete = findViewById(R.id.btnDelete);
 
         d = new Delivery();
+
+        txtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar calender = Calendar.getInstance();
+                mDay = calender.get(calender.YEAR);
+                mMonth = calender.get(calender.MONTH);
+                mYear = calender.get(calender.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Address.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        txtDate.setText(i+"/"+i1+"/"+i2);
+                    }
+                },mDay,mMonth,mYear);
+                datePickerDialog.show();
+            }
+        });
 
         butSave.setOnClickListener(new View.OnClickListener() {
             @Override
