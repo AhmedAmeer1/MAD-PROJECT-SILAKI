@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/placeOrder"
         android:layout_width="105dp"
         android:layout_height="44dp"
         android:layout_marginStart="231dp"

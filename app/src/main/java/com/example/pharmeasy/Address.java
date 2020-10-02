@@ -22,7 +22,7 @@ public class Address extends AppCompatActivity {
 
 
 
-        Button btn3 =(Button)findViewById(R.id.button3);
+        Button btn3 =(Button)findViewById(R.id.placeOrder);
 
 
         btn3.setOnClickListener(new View.OnClickListener() {

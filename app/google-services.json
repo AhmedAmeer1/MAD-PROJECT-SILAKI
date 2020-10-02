@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "667282349820",
+    "firebase_url": "https://mad-project-silaki.firebaseio.com",
+    "project_id": "mad-project-silaki",
+    "storage_bucket": "mad-project-silaki.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667282349820:android:e756388327fa8a725a8179",
+        "android_client_info": {
+          "package_name": "com.example.pharmeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667282349820-7j4e9naetjgng4hmbod0nfn60tqoib8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTKpuuNJnlzf012YYXw6wLagHn5ou86lQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667282349820-7j4e9naetjgng4hmbod0nfn60tqoib8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

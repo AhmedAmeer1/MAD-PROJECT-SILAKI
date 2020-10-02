@@ -17,12 +17,10 @@ import android.widget.Button;
 import com.example.pharmeasy.ContactUs;
 import com.example.pharmeasy.R;
 import com.example.pharmeasy.SignIn;
-import com.example.pharmeasy.Signup;
 import com.example.pharmeasy.UpdateRemoveAddress;
 import com.example.pharmeasy.feedback;
 import com.example.pharmeasy.payment_update;
 import com.example.pharmeasy.personal_details;
-import com.example.pharmeasy.welcome;
 
 public class UserFragment extends Fragment {
 
@@ -78,7 +76,7 @@ public class UserFragment extends Fragment {
 
 
         //contact us
-        Button b3=(Button)v.findViewById(R.id.button3);
+        Button b3=(Button)v.findViewById(R.id.placeOrder);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
