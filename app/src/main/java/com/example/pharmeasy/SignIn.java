@@ -3,8 +3,10 @@ package com.example.pharmeasy;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -42,7 +44,7 @@ public class SignIn extends AppCompatActivity {
 
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 String Email=email.getText().toString().trim();
                 String  Password=password.getText().toString().trim();
 
@@ -65,6 +67,28 @@ public class SignIn extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"login Unsuccessful",Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(view.INVISIBLE);
+
+
+                            AlertDialog.Builder builder =new AlertDialog.Builder(SignIn.this);
+
+                            builder.setCancelable(true);
+
+                            builder.setTitle("ERROR");
+                            builder.setMessage("EMAIL OR PASSWORD IS INCORRECT");
+///////////intent
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent packageContent = null;
+                                    Intent intent1= new Intent(SignIn.this,SignIn.class);
+                                    startActivity(intent1);
+                                }
+                            });
+
+                            builder.show();
+
                         }
                     }
                 });

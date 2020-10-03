@@ -20,8 +20,8 @@ public class checkout extends AppCompatActivity {
 
         totamt.setText(""+78655);
 
-        Intent i=new Intent(this, final_payment_Activity.class);
-        i.putExtra("One","34445");
+//        Intent i=new Intent(this, final_payment_Activity.class);
+//        i.putExtra("One","34445");
 
 
 
@@ -40,7 +40,7 @@ public class checkout extends AppCompatActivity {
     }
 
     public void ActivityThree(View view){
-        Intent i1 = new Intent(this,payment.class);
+        Intent i1 = new Intent(this,Address.class);
         startActivity(i1);
     }
 

@@ -52,6 +52,7 @@
     <string name="amt">amt</string>
     <string name="jj">Total : Rs.400</string>
     <string name="ff">Total : Rs.400</string>
+    <string name="purchase">purchase</string>
 
 
 </resources>

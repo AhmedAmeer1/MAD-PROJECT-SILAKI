@@ -83,7 +83,7 @@ public class UserFragment extends Fragment {
 
 
         //contact us
-        Button b3=(Button)v.findViewById(R.id.btnSave);
+        Button b3=(Button)v.findViewById(R.id.address_confirm);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
