@@ -191,7 +191,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnDeletePayment"
+
+        android:id="@+id/btnDelete"
+
         android:layout_width="102dp"
         android:layout_height="35dp"
         android:layout_marginStart="89dp"

@@ -43,7 +43,9 @@
         />
 
     <Button
-        android:id="@+id/btnPlaceOrder"
+
+        android:id="@+id/feedback12"
+
         android:layout_width="160dp"
         android:layout_height="154dp"
         android:layout_marginTop="17dp"
@@ -70,7 +72,9 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toStartOf="@+id/button10"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vitamin" />
+        app:layout_constraintTop_toBottomOf="@+id/feedback12"
+        app:layout_constraintVertical_bias="0.115" />
+
 
     <Button
         android:id="@+id/button8"
@@ -86,8 +90,12 @@
         android:textColor="#8ABF1AD1"
         app:layout_constraintBottom_toTopOf="@+id/button10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/vitamin"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toEndOf="@+id/feedback12"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.347" />
+
 
     <TextView
         android:id="@+id/textView2"

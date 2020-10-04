@@ -22,12 +22,14 @@
         app:srcCompat="@drawable/userlogo" />
 
     <Button
-        android:id="@+id/accountsettings"
+
+        android:id="@+id/feedback12"
+
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="#8ABF1AD1"
+        android:background="#48a84c"
         android:text="Account settings"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -39,10 +41,12 @@
         app:layout_constraintVertical_bias="0.301" />
 
     <Button
-        android:id="@+id/btnShow"
+
+        android:id="@+id/deliverybtn"
+
         android:layout_width="254dp"
         android:layout_height="50dp"
-        android:background="#8ABF1AD1"
+        android:background="#48a84c"
         android:text="DELIVERY SETTINGS"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -57,7 +61,7 @@
         android:id="@+id/button12"
         android:layout_width="254dp"
         android:layout_height="50dp"
-        android:background="#8ABF1AD1"
+        android:background="#48a84c"
         android:text="Feedback"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -68,10 +72,11 @@
         app:layout_constraintVertical_bias="0.602" />
 
     <Button
-        android:id="@+id/btnShowPayment"
+<<<<<<< final
+        android:id="@+id/btnSavePayment"
         android:layout_width="254dp"
         android:layout_height="50dp"
-        android:background="#8ABF1AD1"
+        android:background="#48a84c"
         android:text="PAYMENT SETTINGS"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -83,17 +88,13 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <Button
-        android:id="@+id/accountcontactus"
+
+        android:id="@+id/address_confirm"
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="79dp"
-        android:layout_marginLeft="79dp"
-        android:layout_marginTop="484dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginRight="78dp"
-        android:layout_marginBottom="197dp"
-        android:background="#8ABF1AD1"
+        android:background="#48a84c"
+
         android:text="ContactUs"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,7 +106,7 @@
         android:id="@+id/button4"
         android:layout_width="254dp"
         android:layout_height="50dp"
-        android:background="#8ABF1AD1"
+        android:background="#48a84c"
         android:text="LogOut"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

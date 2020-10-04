@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class OrderConfirmation extends AppCompatActivity {
+public class  OrderConfirmation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

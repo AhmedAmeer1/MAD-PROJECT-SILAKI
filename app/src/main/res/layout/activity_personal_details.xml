@@ -6,12 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/design_default_color_on_primary"
     tools:context=".personal_details">
 
 
     <Button
-        android:id="@+id/btnPlaceOrder"
+
+        android:id="@+id/feedback12"
+
         android:layout_width="166dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -20,13 +22,13 @@
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
         android:layout_marginBottom="145dp"
-        android:background="#D832D0"
+        android:background="#48a84c"
         android:text="Delete Account" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/t2"
         android:layout_width="273dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -35,14 +37,13 @@
         android:layout_marginLeft="65dp"
         android:layout_marginTop="129dp"
         android:ems="10"
-        android:hint="Email"
         android:inputType="textEmailAddress" />
 
 
     <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/logPassword"
+        android:layout_width="271dp"
+        android:layout_height="46dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -56,9 +57,9 @@
 
 
     <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/number"
+        android:layout_width="270dp"
+        android:layout_height="51dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -71,8 +72,10 @@
 
     <EditText
         android:id="@+id/address"
-        android:layout_width="273dp"
-        android:layout_height="wrap_content"
+
+        android:layout_width="272dp"
+        android:layout_height="59dp"
+
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -81,11 +84,28 @@
         android:layout_marginLeft="67dp"
         android:layout_marginTop="325dp"
         android:ems="10"
-        android:hint="Address"
+        android:hint="name"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/loyalitypints"
+        android:layout_width="272dp"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="69dp"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:hint="loyality points"
         android:inputType="textPostalAddress" />
 
     <Button
-        android:id="@+id/btnDeletePayment"
+
+        android:id="@+id/btnSavePayment"
+
         android:layout_width="166dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
@@ -94,7 +114,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:layout_marginBottom="144dp"
-        android:background="#D832D0"
+        android:background="#48a84c"
         android:text="Update" />
 
 

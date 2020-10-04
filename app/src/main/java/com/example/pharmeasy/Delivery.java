@@ -2,6 +2,9 @@ package com.example.pharmeasy;
 
 public class Delivery {
 
+
+    private String id;
+
     private String address;
     private String state;
     private String city;
@@ -50,4 +53,19 @@ public class Delivery {
     public void setDeliverydate(String deliverydate) {
         this.deliverydate = deliverydate;
     }
+
+
+
+
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
 }

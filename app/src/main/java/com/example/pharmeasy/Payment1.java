@@ -4,7 +4,9 @@ import java.util.Map;
 
 public class Payment1 {
 
-    private int cardnumber;
+
+    private String id;
+    private long cardnumber;
     private String cardname;
     private int expdate;
     private int cvv;
@@ -12,11 +14,14 @@ public class Payment1 {
     public Payment1() {
     }
 
-    public int getCardnumber() {
+
+    public long getCardnumber() {
         return cardnumber;
     }
 
-    public void setCardnumber(int cardnumber) {
+    public void setCardnumber(long cardnumber) {
+
+
         this.cardnumber = cardnumber;
     }
 
@@ -43,4 +48,16 @@ public class Payment1 {
     public void setCvv(int cvv) {
         this.cvv = cvv;
     }
+
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
 }
