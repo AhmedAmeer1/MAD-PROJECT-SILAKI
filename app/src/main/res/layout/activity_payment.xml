@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/pay" />
 
     <EditText
-        android:id="@+id/cname"
+        android:id="@+id/cardholder_name"
         android:layout_width="245dp"
         android:layout_height="53dp"
         android:layout_marginStart="105dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/cnumber"
+        android:id="@+id/number"
         android:layout_width="241dp"
         android:layout_height="44dp"
         android:layout_marginStart="105dp"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/expdate"
+        android:id="@+id/exp_date"
         android:layout_width="99dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="0.572" />
 
     <EditText
-        android:id="@+id/cvvinsert"
+        android:id="@+id/cvvupdate"
         android:layout_width="87dp"
         android:layout_height="38dp"
         android:ems="10"

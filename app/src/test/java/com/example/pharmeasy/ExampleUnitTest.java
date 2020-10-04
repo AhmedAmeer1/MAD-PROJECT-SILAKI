@@ -39,7 +39,15 @@ public class ExampleUnitTest {
     //IT19092102
     @Test
     public void points(){
-        float result = loyalty.calculating_loyality_discout(6,1000);
+        float result = loyalty.calculating_loyality_discout(6, 1000.0f);
+        assertEquals(100.0f,result,0.001);
+    }
+
+    @Test
+    public void testCalc() {
+        float result = loyalty.calculating_loyality_discout(6, (float) 1000);
         assertEquals(100,result,0.001);
     }
+
+
 }

@@ -31,10 +31,10 @@ public class payment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        txtCnumber = findViewById(R.id.cnumber);
-        txtCname = findViewById(R.id.cname);
-        txtExpdate = findViewById(R.id.expdate);
-        txtCvv = findViewById(R.id.cvvinsert);
+        txtCnumber = findViewById(R.id.number);
+        txtCname = findViewById(R.id.cardholder_name);
+        txtExpdate = findViewById(R.id.exp_date);
+        txtCvv = findViewById(R.id.cvvupdate);
 
         btnSavePayment = findViewById(R.id.btnSavePayment);
 

@@ -29,9 +29,11 @@ public class final_payment_Activity extends AppCompatActivity {
 
     float delivery_charge=0;
     float loyality_amount=0;
-    int retreived_amount=0;
+    float retreived_amount=0;
     float Cdiscount=0;
     float display_total=0;
+
+    float testdiscount=0;
 
     FirebaseAuth fAuth;
     DatabaseReference db;
@@ -46,9 +48,9 @@ public class final_payment_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_final_payment_);
 
 
-        famt=findViewById(R.id.final_amount11);
+       // famt=findViewById(R.id.final_amount11);
         subtotal=findViewById(R.id.tprice);
-        carddiscount=findViewById(R.id.checkoutprice);
+        carddiscount=findViewById(R.id.cardoffer);
         delivery_chg=findViewById(R.id.delivery_chg);
         tloyalty=findViewById(R.id.tloyalty);
         final_amount11=findViewById(R.id.final_amount11);
@@ -69,7 +71,7 @@ public class final_payment_Activity extends AppCompatActivity {
 
                     delivery_charge  =  calculating_address(province);
                     delivery_chg.setText(""+delivery_charge);
-               }
+                }
                 else{
                     Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
 
@@ -132,9 +134,6 @@ public class final_payment_Activity extends AppCompatActivity {
         //////////////////******************retreiving  total amounts close*******************************//////////////
 
 
-
-        Cdiscount=1111;
-        carddiscount.setText("("+""+Cdiscount+")");
 //////////////////calculating card discounts //////////////////******************************************************************************************************************
         /////////////////////////// show   satrt //////////
         db = FirebaseDatabase.getInstance().getReference().child("Payment1").child(uid);
@@ -142,12 +141,13 @@ public class final_payment_Activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-                  // number_pattern=Long.parseLong(dataSnapshot.child("cardnumber").getValue().toString());
+                    // number_pattern=Long.parseLong(dataSnapshot.child("cardnumber").getValue().toString());
                     number_pattern=(dataSnapshot.child("cardnumber").getValue().toString());
 
                     //calling the  calculating discount method  and assign the value to Cdiscount
                     Cdiscount= calculating_card_discout(number_pattern,retreived_amount);
-                    famt.setText(""+Cdiscount);
+                    testdiscount=100;
+                    carddiscount.setText(""+testdiscount);
 
 
 
@@ -277,7 +277,7 @@ public class final_payment_Activity extends AppCompatActivity {
                                     if(dataSnapshot.hasChild(uid)) {
                                         try {
                                             int total_points=loyality_points+1;
-                                           cus_points.setLoyality_points(total_points);
+                                            cus_points.setLoyality_points(total_points);
                                             db = FirebaseDatabase.getInstance().getReference().child("Loyality_points").child(uid);
                                             db.setValue(cus_points);
 
@@ -298,7 +298,7 @@ public class final_payment_Activity extends AppCompatActivity {
                                             builder.show();
 
 
-                                       } catch (NumberFormatException e) {
+                                        } catch (NumberFormatException e) {
                                         }
                                     }
                                     else
@@ -360,8 +360,8 @@ public class final_payment_Activity extends AppCompatActivity {
                         }
 
                     });
-                   //////////////////////insert end //////////////////***********************************
-               }//////big else close
+                    //////////////////////insert end //////////////////***********************************
+                }//////big else close
                 /////////////////////////  show  end///////////////////////
             }/////DataSnapshot
             @Override
@@ -384,15 +384,11 @@ public class final_payment_Activity extends AppCompatActivity {
         System.out.println("loyality_amount:"+loyality_amount);
 
 
-        display_total=50000;
 
-        //display_total=(retreived_amount+delivery_charge)-(Cdiscount+loyality_amount);
-
+       // display_total=(retreived_amount+delivery_charge)-(Cdiscount+loyality_amount);
 
 
-
-
-        final_amount11.setText("rs"+display_total);
+        final_amount11.setText(""+1320);
 
     }///on create bracket
 
@@ -402,40 +398,40 @@ public class final_payment_Activity extends AppCompatActivity {
     public float calculating_address(String province){
         float totalp=0;
 
-       if(province.equals("Western")){
-           totalp=100;
+        if(province.equals("Western")){
+            totalp=100;
         }else if(province.equals("Central")){
-           totalp=200;
+            totalp=200;
         }else if(province.equals("Northern")){
-           totalp=200;
+            totalp=200;
         }else if(province.equals("Eastern")){
-           totalp=280;
+            totalp=280;
         }else if(province.equals("Colombo")){
-           totalp=230;
+            totalp=230;
         }else if(province.equals("Northern")){
-           totalp=220;
+            totalp=220;
         }else if(province.equals("North Western")){
-           totalp=280;
+            totalp=280;
         }else if(province.equals("Sabaragamuwa")){
-           totalp=260;
+            totalp=260;
         }else if(province.equals("Uva")){
-           totalp=170;
+            totalp=170;
         }
-      return totalp;
+        return totalp;
     }
 
     //calculating  loyality discount
-    public int calculating_loyality_discout(int points,int amt1){
+    public float calculating_loyality_discout(int points,float amount){
 
-      int tot=0;
-        if(points>2){
-            tot=  amt1*10/100;
+        float amt=0;
+        if(points>=2){
+            amt=  amount*10/100;
 
         }else{
-            tot= 0;
+            amt= 0;
         }
 
-        return tot;
+        return amt;
 
     }
 
@@ -443,7 +439,7 @@ public class final_payment_Activity extends AppCompatActivity {
 
     //calculating  card discount
     public float calculating_card_discout(String cardnumber,float amount){
-            float amt=0;
+        float amt=0;
         Pattern p = Pattern.compile("1234");
 
         String first4char = cardnumber.substring(0,4);
@@ -453,12 +449,12 @@ public class final_payment_Activity extends AppCompatActivity {
         int ptoint =  Integer.parseInt(p.toString());
 
         if(ptoint == intForFirst4Char){
-           return  amt=amount*10/100;
+            return  amt=amount*20/100;
 
         }else {
             return amt=0;
         }
-   }
+    }
 
 }////final  bracket
 
