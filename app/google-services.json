@@ -1,13 +1,16 @@
 {
   "project_info": {
+
     "project_number": "55292256693",
     "firebase_url": "https://ahmed-53f5c.firebaseio.com",
     "project_id": "ahmed-53f5c",
     "storage_bucket": "ahmed-53f5c.appspot.com"
+
   },
   "client": [
     {
       "client_info": {
+
         "mobilesdk_app_id": "1:55292256693:android:e9c5b47f409ebdc5a839fc",
         "android_client_info": {
           "package_name": "com.example.hujain"
@@ -38,26 +41,33 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:55292256693:android:00f9811928009254a839fc",
+
         "android_client_info": {
           "package_name": "com.example.pharmeasy"
         }
       },
       "oauth_client": [
         {
+
           "client_id": "55292256693-m00cj81cbpb4i53c5c62aagqjqa21t90.apps.googleusercontent.com",
+
           "client_type": 3
         }
       ],
       "api_key": [
         {
+
           "current_key": "AIzaSyCDKkGWTLkWbyRaBOivgGx8xoAW4Z4DgUY"
+
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+
               "client_id": "55292256693-m00cj81cbpb4i53c5c62aagqjqa21t90.apps.googleusercontent.com",
+
               "client_type": 3
             }
           ]

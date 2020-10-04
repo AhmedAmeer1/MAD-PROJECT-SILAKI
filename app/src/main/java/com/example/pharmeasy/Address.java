@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 //import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 
 
-public class Address extends AppCompatActivity {
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
     public void gotopayment(View v){
         Intent packageContent = null;
@@ -52,7 +56,9 @@ public class Address extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
 
+
         txtAddress = findViewById(R.id.address);
+
 
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
@@ -61,7 +67,27 @@ public class Address extends AppCompatActivity {
 
         address_confirm = findViewById(R.id.address_confirm);
 
+public class Address extends AppCompatActivity {
 
+    public void gotopayment(View v){
+        Intent packageContent = null;
+        Intent i = new Intent(this,payment.class);
+        startActivity(i);
+    }
+
+
+    public void backtocheckout(View v){
+        Intent packageContent = null;
+        Intent i1 = new Intent(this,checkout.class);
+        startActivity(i1);
+    }
+
+    EditText txtAddress,txtState,txtCity,txtPostal,txtDate;
+    Button butSave,butShow,butUpdate,butDelete;
+    DatabaseReference db;
+    Delivery d;
+
+    int mYear,mMonth,mDay;
 
 
         d = new Delivery();
@@ -86,6 +112,25 @@ public class Address extends AppCompatActivity {
             }
         });
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_address);
+
+        txtAddress = findViewById(R.id.address);
+      
+        txtCity = findViewById(R.id.city);
+        txtPostal = findViewById(R.id.postal);
+        txtDate = findViewById(R.id.date);
+        final Calendar calender = Calendar.getInstance();
+
+        butSave = findViewById(R.id.btnSave);
+
+        butUpdate = findViewById(R.id.btnUpdate);
+        butDelete = findViewById(R.id.btnDelete);
+
+
+        d = new Delivery();
 
 
 
@@ -287,6 +332,7 @@ public class Address extends AppCompatActivity {
 
 
         /////////////////////////  show  end///////////////////////
+
 
 
 

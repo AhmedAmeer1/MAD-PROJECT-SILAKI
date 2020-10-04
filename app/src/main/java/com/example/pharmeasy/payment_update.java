@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +25,7 @@ public class payment_update extends AppCompatActivity {
     Button butSave,butShow,butUpdate,butDelete;
     DatabaseReference db;
     Payment1 p;
+
     FirebaseAuth fAuth;
 
 
@@ -38,11 +40,14 @@ public class payment_update extends AppCompatActivity {
         txtCvv = findViewById(R.id.cvvupdate);
 
         butSave = findViewById(R.id.btnSavePayment);
+
         //butShow = findViewById(R.id.btnShowPayment);
+
         butUpdate = findViewById(R.id.btnUpdateP);
         butDelete = findViewById(R.id.btnDeletePayment);
 
         p = new Payment1();
+
         fAuth= FirebaseAuth.getInstance();
         String uid =fAuth.getCurrentUser().getUid();
 
@@ -145,6 +150,6 @@ public class payment_update extends AppCompatActivity {
             }
         });
 
-        ////////
+   
     }
 }

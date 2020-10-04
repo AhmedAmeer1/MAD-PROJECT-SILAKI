@@ -22,7 +22,9 @@
         app:srcCompat="@drawable/userlogo" />
 
     <Button
+
         android:id="@+id/feedback12"
+
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
@@ -39,7 +41,9 @@
         app:layout_constraintVertical_bias="0.301" />
 
     <Button
+
         android:id="@+id/deliverybtn"
+
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:background="#48a84c"
@@ -68,6 +72,7 @@
         app:layout_constraintVertical_bias="0.602" />
 
     <Button
+<<<<<<< final
         android:id="@+id/btnSavePayment"
         android:layout_width="254dp"
         android:layout_height="50dp"
@@ -83,19 +88,19 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <Button
+
         android:id="@+id/address_confirm"
         android:layout_width="254dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:background="#48a84c"
+
         android:text="ContactUs"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button4"

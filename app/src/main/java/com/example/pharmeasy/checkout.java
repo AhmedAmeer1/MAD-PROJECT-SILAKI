@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,11 +28,15 @@ public class checkout extends AppCompatActivity implements AdapterView.OnItemSel
     String[] province = {"Choose province","Western ","Northern ","Central ","Eastern","Colombo","Northern","North Western","Sabaragamuwa","Uva"};
 
 
+import android.widget.Button;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+
 
         spinner = findViewById(R.id.spinner1);
         spinner.setOnItemSelectedListener(this);
@@ -58,6 +63,7 @@ public class checkout extends AppCompatActivity implements AdapterView.OnItemSel
 
 
         });
+
 
     }
 

@@ -28,13 +28,15 @@ public class UpdateRemoveAddress extends AppCompatActivity {
         setContentView(R.layout.activity_update_remove_address);
 
         txtAddress = findViewById(R.id.address);
-//        txtState = findViewById(R.id.state);
+
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
         txtDate = findViewById(R.id.date);
 
+
         butSave = findViewById(R.id.address_confirm);
         butShow = findViewById(R.id.deliverybtn);
+
         butUpdate = findViewById(R.id.btnUpdate);
         butDelete = findViewById(R.id.btnDelete);
 
@@ -48,7 +50,9 @@ public class UpdateRemoveAddress extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
                     txtAddress.setText(dataSnapshot.child("address").getValue().toString());
+
 //                    txtState.setText(dataSnapshot.child("state").getValue().toString());
+
                     txtCity.setText(dataSnapshot.child("city").getValue().toString());
                     txtPostal.setText(dataSnapshot.child("postalcode").getValue().toString());
                     txtDate.setText(dataSnapshot.child("deliverydate").getValue().toString());
@@ -78,7 +82,7 @@ public class UpdateRemoveAddress extends AppCompatActivity {
 
                             try {
                                 d.setAddress(txtAddress.getText().toString().trim());
-//                                d.setState(txtState.getText().toString().trim());
+
                                 d.setCity(txtCity.getText().toString().trim());
                                 d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
                                 d.setDeliverydate(txtDate.getText().toString().trim());
@@ -107,8 +111,8 @@ public class UpdateRemoveAddress extends AppCompatActivity {
 
             }
 
-
         });
+
         butDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,10 +124,13 @@ public class UpdateRemoveAddress extends AppCompatActivity {
 
             private void clearControls() {
                 txtAddress.setText("");
-//                txtState.setText("");
+
+
                 txtCity.setText("");
                 txtPostal.setText("");
                 txtDate.setText("");
             }
         });
+
     }}
+

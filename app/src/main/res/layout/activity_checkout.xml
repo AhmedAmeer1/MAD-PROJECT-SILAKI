@@ -56,7 +56,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+
         android:id="@+id/btnproceed"
+
         android:layout_width="387dp"
         android:layout_height="67dp"
         android:layout_marginStart="12dp"

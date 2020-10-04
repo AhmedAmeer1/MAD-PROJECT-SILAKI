@@ -20,6 +20,7 @@ import com.example.pharmeasy.Address;
 import com.example.pharmeasy.R;
 import com.example.pharmeasy.Total_cost_java;
 import com.example.pharmeasy.checkout;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -52,6 +53,7 @@ public class CartFragment extends Fragment{
         cartList.setNestedScrollingEnabled(true);
         cartreference = FirebaseDatabase.getInstance().getReference().child("cart");
         return cartView;
+
 
 
 
@@ -146,6 +148,7 @@ public class CartFragment extends Fragment{
 
                 holder.description.setText(model.getDescription());
                 holder.total.setText("LKR "+totalCost);
+
 
 
 
