@@ -59,7 +59,6 @@
 
     <EditText
         android:id="@+id/cardholder_name"
-
         android:layout_width="245dp"
         android:layout_height="53dp"
         android:layout_marginStart="105dp"
@@ -114,7 +113,6 @@
         android:id="@+id/cvvupdate"
         android:layout_width="87dp"
         android:layout_height="38dp"
-
         android:ems="10"
         android:hint="CVV"
         android:inputType="textPersonName"
@@ -124,7 +122,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.568" />
-
 
     <ImageView
         android:id="@+id/imageView9"
@@ -136,7 +133,6 @@
         android:layout_marginEnd="314dp"
         android:layout_marginRight="314dp"
         android:layout_marginBottom="457dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -144,7 +140,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/name1" />
 
-<
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="53dp"
@@ -172,7 +167,6 @@
         android:layout_marginEnd="319dp"
         android:layout_marginRight="319dp"
         android:layout_marginBottom="303dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -191,19 +185,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.57"
         app:srcCompat="@drawable/cal12" />
-
-    <EditText
-        android:id="@+id/number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="197dp"
-        android:layout_marginLeft="197dp"
-        android:layout_marginTop="332dp"
-        android:layout_marginBottom="354dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
