@@ -11,10 +11,7 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_products" />
 
-    <item
-        android:id="@+id/navigation_promotion"
-        android:icon="@drawable/ic_local_offer_black_24dp"
-        android:title="@string/title_promotion" />
+
 
     <item
         android:id="@+id/navigation_cart"
