@@ -3,7 +3,7 @@ package com.example.pharmeasy;
 public class Delivery {
 
     private String address;
-    private String state;
+//    private String state;
     private String city;
     private Integer postalcode;
     private String deliverydate;
@@ -19,13 +19,13 @@ public class Delivery {
         this.address = address;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
+//    public String getState() {
+//        return state;
+//    }
+//
+//    public void setState(String state) {
+//        this.state = state;
+//    }
 
     public String getCity() {
         return city;

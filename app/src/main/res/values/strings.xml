@@ -53,5 +53,17 @@
     <string name="ettdate">Expected Delivery Date</string>
     <string name="etdate">Expected Delivery Date</string>
 
-
+<!--    <string-array name="spinner_items">-->
+<!--        <item>Choose District</item>-->
+<!--        <item>Anuradhapura</item>-->
+<!--        <item>Aluthgama</item>-->
+<!--        <item>Badulla</item>-->
+<!--        <item>Batticaloa</item>-->
+<!--        <item>Colombo</item>-->
+<!--        <item>Gampaha</item>-->
+<!--        <item>Galle</item>-->
+<!--        <item>Jaffna</item>-->
+<!--        <item>Kaluthara</item>-->
+<!--        <item>Kandy</item>-->
+<!--    </string-array>-->
 </resources>

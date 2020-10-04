@@ -8,9 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +41,12 @@ public class Address extends AppCompatActivity {
     DatabaseReference db;
     Delivery d;
 
+//    Spinner spinner;
+//    String item;
+//    Member member;
+//
+//    String[] province = {"Choose province","Western ","Northern ","Central ","Eastern","Colombo","Northern","North Western","Sabaragamuwa","Uva"};
+
     int mYear,mMonth,mDay;
 
     @Override
@@ -46,7 +55,7 @@ public class Address extends AppCompatActivity {
         setContentView(R.layout.activity_address);
 
         txtAddress = findViewById(R.id.address);
-        txtState = findViewById(R.id.state);
+//        txtState = findViewById(R.id.state);
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
         txtDate = findViewById(R.id.date);
@@ -57,25 +66,58 @@ public class Address extends AppCompatActivity {
         butUpdate = findViewById(R.id.btnUpdate);
         butDelete = findViewById(R.id.btnDelete);
 
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        db = database.getReference("Province");
+//        spinner = findViewById(R.id.state);
+//        spinner.setOnItemSelectedListener(this);
+
         d = new Delivery();
+//        member = new Member();
+//
+//        ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,province);
+//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        spinner.setAdapter(arrayAdapter);
+//
+//        butSave.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SaveValue(item);
+//            }
+//        });
 
         txtDate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                final Calendar calender = Calendar.getInstance();
-                mDay = calender.get(calender.YEAR);
-                mMonth = calender.get(calender.MONTH);
-                mYear = calender.get(calender.YEAR);
+            public void onClick(View v) {
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Address.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                        txtDate.setText(i+"/"+i1+"/"+i2);
-                    }
-                },mDay,mMonth,mYear);
-                datePickerDialog.show();
+
+                if (v == txtDate) {
+
+                    // Get Current Date
+                    final Calendar c = Calendar.getInstance();
+                    mYear = c.get(Calendar.YEAR);
+                    mMonth = c.get(Calendar.MONTH);
+                    mDay = c.get(Calendar.DAY_OF_MONTH);
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(Address.this,
+                            new DatePickerDialog.OnDateSetListener() {
+
+                                @Override
+                                public void onDateSet(DatePicker view, int year,
+                                                      int monthOfYear, int dayOfMonth) {
+
+                                    txtDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+
+                                }
+                            }, mYear, mMonth, mDay);
+                    datePickerDialog.show();
+
+
+                }
             }
         });
+
+
 
         butSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,8 +127,8 @@ public class Address extends AppCompatActivity {
                 try {
                     if (TextUtils.isEmpty(txtAddress.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please Enter an Address", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(txtState.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter a State", Toast.LENGTH_SHORT).show();
+//                    else if (TextUtils.isEmpty(txtState.getText().toString()))
+//                        Toast.makeText(getApplicationContext(), "Please Enter a State", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtCity.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please Enter a City", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(txtPostal.getText().toString()))
@@ -96,7 +138,7 @@ public class Address extends AppCompatActivity {
                     else {
 
                         d.setAddress(txtAddress.getText().toString().trim());
-                        d.setState(txtState.getText().toString().trim());
+//                        d.setState(txtState.getText().toString().trim());
                         d.setCity(txtCity.getText().toString().trim());
                         d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
                         d.setDeliverydate(txtDate.getText().toString().trim());
@@ -119,7 +161,7 @@ public class Address extends AppCompatActivity {
 
             private void clearControls() {
                 txtAddress.setText("");
-                txtState.setText("");
+//                txtState.setText("");
                 txtCity.setText("");
                 txtPostal.setText("");
                 txtDate.setText("");
@@ -128,5 +170,28 @@ public class Address extends AppCompatActivity {
 
     }
 
+
+//    @Override
+//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//        item = spinner.getSelectedItem().toString();
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//    }
+//
+//    void SaveValue(String item){
+//        if (item =="Choose province"){
+//            Toast.makeText(this,"Please select Province",Toast.LENGTH_SHORT).show();
+//        }
+//        else{
+//            member.setProvince(item);
+//            String id = db.push().getKey();
+//            db.child(id).setValue(member);
+//            Toast.makeText(this,"Value Saved",Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 }
