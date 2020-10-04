@@ -44,7 +44,6 @@
     <string name="textView9">Items : 2</string>
     <string name="textView10">Subtotal : Rs.300</string>
     <string name="radioButton">Pamankada</string>
-
     <string name="Discount">Discount</string>
     <string name="Final_Payment">Final Payment</string>
     <string name="CONFIRM">CONFIRM</string>
@@ -60,16 +59,6 @@
     <string name="Fullname">Fullname</string>
     <string name="Purchase">Purchase</string>
     <string name="product">Total Product Price</string>
-
-   <string name="hintaddress">Address</string>
-    <string name="hintstate">"State/Province "</string>
-    <string name="hintcity">City</string>
-    <string name="hintpostal">Postal Code</string>
-    <string name="hintdelivery">Expected Delivery Date</string>
-    <string name="hintdate">Expected Delivery Date</string>
-    <string name="ettdate">Expected Delivery Date</string>
-    <string name="etdate">Expected Delivery Date</string>
-
 
 
 </resources>
