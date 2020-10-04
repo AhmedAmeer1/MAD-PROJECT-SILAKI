@@ -6,7 +6,7 @@ public class Register {
     private String email;
     private String password;
     private int contact_number;
-    private String address;
+    private String Fullname;
     private String id;
 
 
@@ -38,12 +38,12 @@ public class Register {
         this.contact_number = contact_number;
     }
 
-    public String getAddress() {
-        return address;
+    public String getFullname() {
+        return Fullname;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setFullname(String address) {
+        this.Fullname = address;
     }
 
     public String getId() {

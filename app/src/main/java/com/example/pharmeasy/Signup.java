@@ -24,7 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity {
-    EditText address,email,phone,password;
+    EditText Fullname,email,phone,password;
     FirebaseAuth fAuth;
     Button regBtn;
     Register  register;
@@ -37,7 +37,7 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
 
-        address=findViewById(R.id.address);
+        Fullname=findViewById(R.id.address);
         email=findViewById(R.id.t2);
         phone=findViewById(R.id.number);
         password=findViewById(R.id.logPassword);
@@ -60,7 +60,7 @@ public class Signup extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                final String Address=address.getText().toString().trim();
+                final String Fullname1=Fullname.getText().toString().trim();
                 final String Email=email.getText().toString().trim();
                 final String Phone=phone.getText().toString().trim();
                 final String  Password=password.getText().toString().trim();
@@ -80,8 +80,8 @@ public class Signup extends AppCompatActivity {
                     password.setError("Please enter password!!");
                    return;
                }
-                if(TextUtils.isEmpty(Address)){
-                    address.setError("Please enter address!!");
+                if(TextUtils.isEmpty(Fullname1)){
+                    Fullname.setError("Please enter Fullname!!");
                     return;
                }
 
@@ -106,7 +106,7 @@ public class Signup extends AppCompatActivity {
                         if(task.isSuccessful()){
                             register.setId(fAuth.getCurrentUser().getUid());
                             register.setEmail(Email);
-                            register.setAddress(Address);
+                            register.setFullname(Fullname1);
                             register.setContact_number(Integer.parseInt(Phone));
                             register.setPassword(Password);
 

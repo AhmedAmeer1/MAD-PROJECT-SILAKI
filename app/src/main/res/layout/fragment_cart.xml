@@ -12,20 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/itemcart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="ITEMS ADDED TO YOUR CART (2)"
-            />
+            android:text="ITEMS ADDED TO YOUR CART " />
 
         <TextView
             android:id="@+id/total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LKR 0.00"
-            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
     <RelativeLayout
@@ -37,7 +38,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="Update"
+            android:background="@drawable/button2"
+            android:text="@string/Purchase"
             android:textColor="@android:color/black" />
         <androidx.core.widget.NestedScrollView
             android:id="@+id/cartListScroll"

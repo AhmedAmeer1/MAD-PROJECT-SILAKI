@@ -56,6 +56,9 @@
     <string name="hintcity">hintcity</string>
     <string name="hintpostal">hintpostal</string>
     <string name="edate">hintdate</string>
+    <string name="Fullname">Fullname</string>
+    <string name="Purchase">Purchase</string>
+    <string name="product">Total Product Price</string>
 
 
 </resources>

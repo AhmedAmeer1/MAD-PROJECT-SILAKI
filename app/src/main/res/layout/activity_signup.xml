@@ -76,7 +76,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:ems="10"
-        android:hint="@string/msg4"
+        android:hint="@string/Fullname"
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toTopOf="@+id/buttonup"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -66,6 +66,8 @@ public class ProductFragment extends Fragment {
                 holder.addCart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("cart");
 
                         String cartId = mDatabase.push().getKey();
