@@ -3,8 +3,10 @@ package com.example.pharmeasy;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignIn extends AppCompatActivity {
 
     EditText  email,password;
-    Button  logBtn;
+    Button  logBtn,createbtn;
     FirebaseAuth fAuth;
     ProgressBar progressBar;
 
@@ -32,17 +34,24 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         email=findViewById(R.id.logMail);
-        password=findViewById(R.id.logPassword);
+        password=findViewById(R.id.password);
         fAuth=FirebaseAuth.getInstance();
 
         logBtn=findViewById(R.id.login);
+        createbtn=findViewById(R.id.createbtn);
         progressBar=findViewById(R.id.progressBar);
 
-
+        createbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent12= new Intent(SignIn.this,Signup.class);
+                startActivity(intent12);
+            }
+        });
 
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 String Email=email.getText().toString().trim();
                 String  Password=password.getText().toString().trim();
 
@@ -65,6 +74,28 @@ public class SignIn extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"login Unsuccessful",Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(view.INVISIBLE);
+
+
+                            AlertDialog.Builder builder =new AlertDialog.Builder(SignIn.this);
+
+                            builder.setCancelable(true);
+
+                            builder.setTitle("ERROR");
+                            builder.setMessage("EMAIL OR PASSWORD IS INCORRECT");
+///////////intent
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent packageContent = null;
+                                    Intent intent1= new Intent(SignIn.this,SignIn.class);
+                                    startActivity(intent1);
+                                }
+                            });
+
+                            builder.show();
+
                         }
                     }
                 });

@@ -6,12 +6,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_primary"
+    android:background="@color/design_default_color_on_primary"
     tools:context=".personal_details">
 
 
     <Button
-        android:id="@+id/butDelete"
+        android:id="@+id/feedback12"
         android:layout_width="166dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -20,7 +20,7 @@
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
         android:layout_marginBottom="145dp"
-        android:background="#D832D0"
+        android:background="#48a84c"
         android:text="Delete Account" />
 
     <EditText
@@ -34,7 +34,6 @@
         android:layout_marginStart="65dp"
         android:layout_marginLeft="65dp"
         android:layout_marginTop="129dp"
-        android:background="@drawable/back1"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
@@ -50,7 +49,6 @@
         android:layout_marginStart="66dp"
         android:layout_marginLeft="66dp"
         android:layout_marginTop="194dp"
-        android:background="@drawable/back1"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -66,7 +64,6 @@
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
         android:layout_marginTop="260dp"
-        android:background="@drawable/back1"
         android:ems="10"
         android:hint="Number"
         android:inputType="phone" />
@@ -82,7 +79,6 @@
         android:layout_marginStart="67dp"
         android:layout_marginLeft="67dp"
         android:layout_marginTop="325dp"
-        android:background="@drawable/back1"
         android:ems="10"
         android:hint="Address"
         android:inputType="textPostalAddress" />
@@ -97,7 +93,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:layout_marginBottom="144dp"
-        android:background="#D832D0"
+        android:background="#48a84c"
         android:text="Update" />
 
 

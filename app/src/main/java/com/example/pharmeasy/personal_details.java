@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class personal_details extends AppCompatActivity {
     Register register = new Register();
     FirebaseAuth fAuth;
     Register reg11=new Register();
+    ProgressBar progressBar;
 
 
     @Override
@@ -43,10 +45,11 @@ public class personal_details extends AppCompatActivity {
         number=findViewById(R.id.number);
 
         butUpdate = findViewById(R.id.btnSavePayment);
-        butDelete = findViewById(R.id.butDelete);
+        butDelete = findViewById(R.id.feedback12);
 
         fAuth=FirebaseAuth.getInstance();
         String uid =fAuth.getCurrentUser().getUid();
+
 
         DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
         readRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -57,6 +60,9 @@ public class personal_details extends AppCompatActivity {
                     password.setText(dataSnapshot.child("password").getValue().toString());
                     address.setText(dataSnapshot.child("address").getValue().toString());
                    number.setText(dataSnapshot.child("contact_number").getValue().toString());
+
+
+
                 }
                 else
                     Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
@@ -67,7 +73,6 @@ public class personal_details extends AppCompatActivity {
 
             }
         });
-
 
 
 

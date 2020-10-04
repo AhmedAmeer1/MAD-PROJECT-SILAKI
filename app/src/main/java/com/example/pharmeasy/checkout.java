@@ -5,50 +5,103 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-public class checkout extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-    TextView totamt;
-    int num=3400;
+public class checkout extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    Button btn;
+    Spinner spinner;
+    DatabaseReference db;
+    String item;
+    Member member;
+    FirebaseAuth fAuth;
+
+    String[] province = {"Choose province","Western","Northern","Central","Eastern","Colombo","Northern","North Western","Sabaragamuwa","Uva"};
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
-        totamt=findViewById(R.id.famt);
+        spinner = findViewById(R.id.spinner1);
+        spinner.setOnItemSelectedListener(this);
 
-        totamt.setText(""+78655);
+        btn = findViewById(R.id.btnproceed);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        db = database.getReference("Province");
+        spinner = findViewById(R.id.spinner1);
+        spinner.setOnItemSelectedListener(this);
 
-        Intent i=new Intent(this, final_payment_Activity.class);
-        i.putExtra("One","34445");
+        member = new Member();
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,province);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(arrayAdapter);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SaveValue(item);
+            }
 
 
 
-
+        });
 
     }
-
-
-
-
-
 
     public void ActivityTwo(View v){
         Intent i = new Intent(this, Address.class);
         startActivity(i);
     }
 
-    public void ActivityThree(View view){
-        Intent i1 = new Intent(this,payment.class);
-        startActivity(i1);
+
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//        Toast.makeText(this,adapterView.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+
+        item = spinner.getSelectedItem().toString();
+
     }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    void SaveValue(String item){
+        if (item =="Choose province"){
+            Toast.makeText(this,"Please select Province",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            fAuth= FirebaseAuth.getInstance();
+            String uid =fAuth.getCurrentUser().getUid();
+
+            member.setProvince(item);
+            db.child(uid).setValue(member);
 
 
+            Toast.makeText(this,"Value Saved",Toast.LENGTH_SHORT).show();
 
 
+            Intent i11 = new Intent(checkout.this,Address.class);
+            startActivity(i11);
 
 
+        }
+    }
 
 }

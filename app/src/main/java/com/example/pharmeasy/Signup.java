@@ -56,10 +56,10 @@ public class Signup extends AppCompatActivity {
 
             Intent i=new Intent(this, MainActivity.class);
         }
-
+//////////////reg start
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 final String Address=address.getText().toString().trim();
                 final String Email=email.getText().toString().trim();
                 final String Phone=phone.getText().toString().trim();
@@ -142,6 +142,28 @@ public class Signup extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"registration unsuccessful",Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(view.INVISIBLE);
+
+
+                            AlertDialog.Builder builder =new AlertDialog.Builder(Signup.this);
+
+                            builder.setCancelable(true);
+
+                            builder.setTitle("ERROR");
+                            builder.setMessage("EMAIL IS ALREADY TAKEN");
+///////////intent
+
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent packageContent = null;
+                                    Intent intent1= new Intent(Signup.this,Signup.class);
+                                    startActivity(intent1);
+                                }
+                            });
+
+                            builder.show();
+
                         }
                     }
                 });
@@ -149,6 +171,8 @@ public class Signup extends AppCompatActivity {
             }
         });
 
+
+        /////reg finish
 
     }
 }
