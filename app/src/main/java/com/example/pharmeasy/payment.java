@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,22 +18,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 public class payment extends AppCompatActivity {
 
     EditText txtCnumber,txtCname,txtExpdate,txtCvv;
-
     Button btnSavePayment,butShow,butUpdate,butDelete;
     DatabaseReference db;
     Payment1 p;
     FirebaseAuth fAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-
 
         txtCnumber = findViewById(R.id.number);
         txtCname = findViewById(R.id.cardholder_name);
@@ -199,10 +194,6 @@ public class payment extends AppCompatActivity {
 ////////////////////////////////////////////////////////////////////////insert end      //////////////////////////////////////////////////////////////////
 
 
-       
-
-        butSave = findViewById(R.id.btnSavePayment);
-
 
 
             }
@@ -212,10 +203,6 @@ public class payment extends AppCompatActivity {
 
             }
         });
-
-        p = new Payment1();
-
-
 
 
 
