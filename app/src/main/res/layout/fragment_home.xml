@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     android:background="@color/colorBg"
+    android:id="@+id/homeLayout"
     >
 
     <Button
@@ -72,7 +73,7 @@
         app:layout_constraintVertical_bias="0.115" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/medicine"
         android:layout_width="160dp"
         android:layout_height="154dp"
         android:background="#FFFFFF"

@@ -25,13 +25,14 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
-public class ProductFragment extends Fragment {
+public class MedicineFragment extends Fragment {
 
-   private View contactView;
-   private RecyclerView productList;
-   private DatabaseReference productreference;
+    private View contactView;
+    private RecyclerView productList;
+    private Query productreference;
 
 
 
@@ -39,14 +40,16 @@ public class ProductFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        contactView=inflater.inflate(R.layout.new_product,container,false);
-        productList=(RecyclerView)contactView.findViewById(R.id.productList);
+        contactView=inflater.inflate(R.layout.medicine,container,false);
+        productList=(RecyclerView)contactView.findViewById(R.id.medicineList);
         productList.setLayoutManager(new GridLayoutManager(getContext(), 2));
         productList.setNestedScrollingEnabled(true);
-        productreference = FirebaseDatabase.getInstance().getReference().child("product");
-
+        productreference = FirebaseDatabase.getInstance().getReference().child("product")
+                .orderByChild("category")
+                .equalTo("medicine");
 
         return contactView;
+
     }
 
     @Override
@@ -83,7 +86,7 @@ public class ProductFragment extends Fragment {
             @NonNull
             @Override
             public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.productcardview, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.medicine_cardview, parent, false);
                 ProductViewHolder productViewHolder = new ProductViewHolder(view);
                 return productViewHolder;
             }
@@ -99,12 +102,13 @@ public class ProductFragment extends Fragment {
         TextView productName,price;
         ImageView productImage;
         Button addCart;
-       public ProductViewHolder(@NonNull View itemView){
-           super(itemView);
-           addCart= itemView.findViewById(R.id.addtocartbtn);
-           productName=itemView.findViewById(R.id.product_name);
-           price=itemView.findViewById(R.id.Product_price);
-           productImage=itemView.findViewById(R.id.product_image);
-       }
+        public ProductViewHolder(@NonNull View itemView){
+            super(itemView);
+            addCart= itemView.findViewById(R.id.addtocartbtn);
+            productName=itemView.findViewById(R.id.product_name);
+            price=itemView.findViewById(R.id.Product_price);
+            productImage=itemView.findViewById(R.id.product_image);
+        }
     }
 }
+

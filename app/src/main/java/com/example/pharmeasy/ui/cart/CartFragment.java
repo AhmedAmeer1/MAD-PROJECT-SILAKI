@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ public class CartFragment extends Fragment{
     private RecyclerView cartList;
     private DatabaseReference cartreference;
      float totalCost = 0;
+    String number;
 
 
 
@@ -58,9 +60,12 @@ public class CartFragment extends Fragment{
                 holder.productName.setText(model.getProductName());
                 Picasso.get().load(model.getProductImage()).into(holder.productImage);
                 holder.price.setText(model.getPrice());
-                holder.finalPrice.setText(model.getPrice());
+                holder.elegantNumberButton.setNumber(model.getQuantity());
                 final float price = Float.parseFloat(model.getPrice().substring(model.getPrice().lastIndexOf(" ")+1));
-                totalCost = totalCost + price;
+                final float qtyPrice = price*Integer.parseInt(model.getQuantity());
+                holder.finalPrice.setText("LKR "+String.valueOf(qtyPrice));
+                totalCost = totalCost + qtyPrice;
+                holder.total.setText("LKR "+totalCost);
                 holder.elegantNumberButton.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
                     @Override
                     public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
@@ -85,22 +90,28 @@ public class CartFragment extends Fragment{
                         holder.total.setText("LKR "+totalCost);
                     }
                 });
-//                holder.updateBtn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("cart").child(model.getCartId());
-//                        System.out.println(holder.elegantNumberButton.getNumber());
-//                        Cart crt = new Cart(model.getPrice(),model.getProductName(),model.getProductImage(),model.getDescription(),model.getCartId(),holder.elegantNumberButton.getNumber());
-//                        ref.setValue(crt);
-//
-//                        Toast.makeText(getContext(), "Successfully Updated", Toast.LENGTH_LONG).show();
-//
-//                    }
-//                });
+                holder.elegantNumberButton.setOnClickListener(new ElegantNumberButton.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        number = holder.elegantNumberButton.getNumber();
+                    }
+                });
+                holder.updateBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        DatabaseReference ref=FirebaseDatabase.getInstance().getReference("cart").child(model.getCartId());
+                        System.out.println(number);
+                        Cart crt = new Cart(model.getPrice(),model.getProductName(),model.getProductImage(),model.getDescription(),model.getCartId(),number);
+                        ref.setValue(crt);
+                        Toast.makeText(getContext(), "Successfully Updated", Toast.LENGTH_LONG).show();
+                        onResume();
+
+                    }
+                });
 
 
                 holder.description.setText(model.getDescription());
-                holder.total.setText("LKR "+totalCost);
+
 
 
             }
