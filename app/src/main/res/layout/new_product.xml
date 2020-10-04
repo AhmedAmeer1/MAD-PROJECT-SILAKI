@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginBottom="35dp">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="382dp"
+        android:layout_height="35dp"
+
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Here"
+        />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+       >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+
+            />
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</LinearLayout>

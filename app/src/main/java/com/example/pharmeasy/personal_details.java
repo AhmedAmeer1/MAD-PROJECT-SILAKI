@@ -21,8 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class personal_details extends AppCompatActivity {
 
-    TextView password,email,number;
-    EditText address;
+    TextView password,email,number,loyalitypints;
+    EditText Fullname;
     Button butSave, butShow, butUpdate, butDelete;
     DatabaseReference dbRef;
     Register register = new Register();
@@ -41,8 +41,9 @@ public class personal_details extends AppCompatActivity {
 
         email=findViewById(R.id.t2);
         password=findViewById(R.id.logPassword);
-        address=findViewById(R.id.address);
+        Fullname=findViewById(R.id.address);
         number=findViewById(R.id.number);
+        loyalitypints=findViewById(R.id.loyalitypints);
 
         butUpdate = findViewById(R.id.btnSavePayment);
         butDelete = findViewById(R.id.feedback12);
@@ -51,14 +52,49 @@ public class personal_details extends AppCompatActivity {
         String uid =fAuth.getCurrentUser().getUid();
 
 
-        DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
+        ////////////show loyality points
+
+
+        DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Loyality_points").child(uid);
         readRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChildren()) {
+
+                    loyalitypints.setText("loyality poits : "+dataSnapshot.child("loyality_points").getValue().toString());
+
+
+
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        //////////////////////
+
+
+
+
+
+
+
+
+
+        DatabaseReference readRef1 = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
+        readRef1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
                     email.setText(dataSnapshot.child("email").getValue().toString());
                     password.setText(dataSnapshot.child("password").getValue().toString());
-                    address.setText(dataSnapshot.child("address").getValue().toString());
+                    Fullname.setText(dataSnapshot.child("fullname").getValue().toString());
                    number.setText(dataSnapshot.child("contact_number").getValue().toString());
 
 
@@ -105,7 +141,7 @@ public class personal_details extends AppCompatActivity {
                                 register.setId(fAuth.getCurrentUser().getUid());
                                 register.setEmail(email.getText().toString().trim());
                                 register.setPassword(password.getText().toString().trim());
-                                register.setAddress(address.getText().toString().trim());
+                                register.setFullname(Fullname.getText().toString().trim());
                                 register.setContact_number(Integer.parseInt(number.getText().toString().trim()));
 
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Register").child(uid);
@@ -169,7 +205,7 @@ public class personal_details extends AppCompatActivity {
                 if (dataSnapshot.hasChildren()) {
                     email.setText(dataSnapshot.child("email").getValue().toString());
                     password.setText(dataSnapshot.child("password").getValue().toString());
-                    address.setText(dataSnapshot.child("address").getValue().toString());
+                    Fullname.setText(dataSnapshot.child("fullname").getValue().toString());
                     number.setText(dataSnapshot.child("contact_number").getValue().toString());
                 }
                 else

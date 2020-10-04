@@ -104,7 +104,7 @@ public class Address extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
                     txtAddress.setText(dataSnapshot.child("address").getValue().toString());
-                   // txtState.setText(dataSnapshot.child("state").getValue().toString());
+                    // txtState.setText(dataSnapshot.child("state").getValue().toString());
                     txtCity.setText(dataSnapshot.child("city").getValue().toString());
                     txtPostal.setText(dataSnapshot.child("postalcode").getValue().toString());
                     txtDate.setText(dataSnapshot.child("deliverydate").getValue().toString());

@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +60,9 @@ public class SignIn extends AppCompatActivity {
                     email.setError("Please enter the email..");
                     return;
                 }
+                if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches()){
+                    email.setError("Please enter the email correctly..");
+                }
                 if(TextUtils.isEmpty(Password)){
                     password.setError("Please enter the password");
                     return;
@@ -103,4 +107,5 @@ public class SignIn extends AppCompatActivity {
         });
 
     }
+
 }
