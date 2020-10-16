@@ -137,7 +137,7 @@ public class CartFragment extends Fragment{
 
 
 
-                        Intent intent =new Intent(getActivity(), checkout.class);
+                        Intent intent =new Intent(getActivity(), Address.class);
                         startActivity(intent);
 
 
