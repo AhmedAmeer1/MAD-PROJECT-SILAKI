@@ -66,12 +66,12 @@ public class final_payment_Activity extends AppCompatActivity {
 
         ////////////////////calculating  delivery charges start //////////////////////////
         ///////////////////////////// show   satrt //////////
-        db = FirebaseDatabase.getInstance().getReference().child("Province").child(uid);
+        db = FirebaseDatabase.getInstance().getReference().child("Delivery").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-                    String province=(dataSnapshot.child("province").getValue().toString());
+                    String province=(dataSnapshot.child("state").getValue().toString());
                     System.out.println("province i sequal to :"+province);
                     delivery_charge=calculating_address(province);
                     delivery_chg.setText(""+delivery_charge);
@@ -274,6 +274,13 @@ public class final_payment_Activity extends AppCompatActivity {
                                             cus_points.setLoyality_points(total_points);
                                             db = FirebaseDatabase.getInstance().getReference().child("Loyality_points").child(uid);
                                             db.setValue(cus_points);
+
+
+                                            //delete cart
+                                            DatabaseReference dr=FirebaseDatabase.getInstance().getReference().child("cart");
+                                            dr.removeValue();
+
+
                                             ////////////add dialog box
                                             AlertDialog.Builder builder =new AlertDialog.Builder(final_payment_Activity.this);
                                             builder.setCancelable(true);
@@ -317,6 +324,13 @@ public class final_payment_Activity extends AppCompatActivity {
                                 cus_points.setId(uid);
                                 cus_points.setLoyality_points(total_points);
                                 db.child(uid).setValue(cus_points);
+
+                                //delete cart
+                                DatabaseReference dr=FirebaseDatabase.getInstance().getReference().child("cart");
+                                dr.removeValue();
+
+                              //  db = FirebaseDatabase.getInstance().getReference().child("cart");
+                               // db.removeValue();
 
                                 ////////////add dialog box
                                 AlertDialog.Builder builder =new AlertDialog.Builder(final_payment_Activity.this);
