@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +22,11 @@ public class UpdateRemoveAddress extends AppCompatActivity {
     Button butSave,butShow,butUpdate,butDelete;
     DatabaseReference db;
     Delivery d;
+
+
+    FirebaseAuth fAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +46,14 @@ public class UpdateRemoveAddress extends AppCompatActivity {
         butUpdate = findViewById(R.id.btnUpdate);
         butDelete = findViewById(R.id.btnDelete);
 
+
+        fAuth= FirebaseAuth.getInstance();
+        String uid =fAuth.getCurrentUser().getUid();
+
         d = new Delivery();
 
         /////////////////////////////
-        db = FirebaseDatabase.getInstance().getReference().child("Delivery").child("D1");
+        db = FirebaseDatabase.getInstance().getReference().child("Delivery").child(uid);
 
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -78,7 +88,9 @@ public class UpdateRemoveAddress extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        if(dataSnapshot.hasChild("D1")) {
+                        fAuth= FirebaseAuth.getInstance();
+                        String uid =fAuth.getCurrentUser().getUid();
+                        if(dataSnapshot.hasChild(uid)) {
 
                             try {
                                 d.setAddress(txtAddress.getText().toString().trim());
@@ -87,7 +99,7 @@ public class UpdateRemoveAddress extends AppCompatActivity {
                                 d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
                                 d.setDeliverydate(txtDate.getText().toString().trim());
 
-                                db = FirebaseDatabase.getInstance().getReference().child("Delivery").child("D1");
+                                db = FirebaseDatabase.getInstance().getReference().child("Delivery").child(uid);
                                 db.setValue(d);
 //                                clearControls();
 
@@ -116,7 +128,9 @@ public class UpdateRemoveAddress extends AppCompatActivity {
         butDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db = FirebaseDatabase.getInstance().getReference().child("Delivery").child("D1");
+                fAuth= FirebaseAuth.getInstance();
+                String uid =fAuth.getCurrentUser().getUid();
+                db = FirebaseDatabase.getInstance().getReference().child("Delivery").child(uid);
                 db.removeValue();
                 clearControls();
                 Toast.makeText(getApplicationContext(),"sucessfully deleted",Toast.LENGTH_SHORT).show();
