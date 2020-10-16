@@ -89,7 +89,7 @@
         android:layout_marginRight="90dp"
         android:layout_marginBottom="412dp"
         android:ems="10"
-        android:hint="@string/hintaddress"
+        android:hint="@string/address222"
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +110,7 @@
         android:layout_marginBottom="343dp"
         android:ems="10"
 
-        android:hint="@string/hintcity"
+        android:hint="@string/city33"
 
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +132,7 @@
         android:layout_marginBottom="273dp"
         android:ems="10"
 
-        android:hint="@string/hintpostal"
+        android:hint="@string/postalcode23"
 
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -154,9 +154,10 @@
         android:layout_marginBottom="204dp"
         android:ems="10"
 
-     
-        android:inputType="date"
 
+        android:hint="@string/date111"
+
+        android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

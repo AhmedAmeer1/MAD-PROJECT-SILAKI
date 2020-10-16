@@ -59,6 +59,12 @@
     <string name="Fullname">Fullname</string>
     <string name="Purchase">Purchase</string>
     <string name="product">Total Product Price</string>
+    <string name="address11" />
+    <string name="address222">address</string>
+    <string name="city33">city</string>
+    <string name="postalcode11" />
+    <string name="postalcode23">postalcode</string>
+    <string name="date111">date</string>
 
 
 </resources>

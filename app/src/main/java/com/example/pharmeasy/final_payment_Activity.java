@@ -27,13 +27,16 @@ public class final_payment_Activity extends AppCompatActivity {
     int loyality_points=0;
     Loyality_points  cus_points=new Loyality_points();
 
-    float delivery_charge=0;
-    float loyality_amount=0;
-    float retreived_amount=0;
-    float Cdiscount=0;
-    float display_total=0;
 
-    float testdiscount=0;
+
+    float delivery_charge=0;
+      float loyality_amount=0;
+      float retreived_amount=0;
+       float Cdiscount=0;
+      float display_total=0;
+
+     float testdiscount=0;
+
 
     FirebaseAuth fAuth;
     DatabaseReference db;
@@ -47,19 +50,21 @@ public class final_payment_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_payment_);
 
-
        // famt=findViewById(R.id.final_amount11);
         subtotal=findViewById(R.id.tprice);
-        carddiscount=findViewById(R.id.cardoffer);
+        carddiscount=findViewById(R.id.checkoutprice);
         delivery_chg=findViewById(R.id.delivery_chg);
         tloyalty=findViewById(R.id.tloyalty);
         final_amount11=findViewById(R.id.final_amount11);
         final_payment1btn =findViewById(R.id.final_payment1btn);
 
 
-        ////////////////////calculating  delivery charges start //////////////////////////
         fAuth= FirebaseAuth.getInstance();
         String uid =fAuth.getCurrentUser().getUid();
+
+       // final_amount11.setText(""+0000);
+
+        ////////////////////calculating  delivery charges start //////////////////////////
         ///////////////////////////// show   satrt //////////
         db = FirebaseDatabase.getInstance().getReference().child("Province").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -68,26 +73,21 @@ public class final_payment_Activity extends AppCompatActivity {
                 if (dataSnapshot.hasChildren()) {
                     String province=(dataSnapshot.child("province").getValue().toString());
                     System.out.println("province i sequal to :"+province);
-
-                    delivery_charge  =  calculating_address(province);
+                    delivery_charge=calculating_address(province);
                     delivery_chg.setText(""+delivery_charge);
-                }
+               }
                 else{
                     Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-
         }); ///////////////////////////// show   end //////////
+       ////////////////////////calculating  delivery charges  end/////////////////////////////
 
 
 
-        ////////////////////////calculating  delivery charges  end/////////////////////////////
 
 
 
@@ -100,70 +100,70 @@ public class final_payment_Activity extends AppCompatActivity {
 
 
 //////////////retreiving  total amounts
-
-
-        ///////////////////////////// show   satrt //////////
         db = FirebaseDatabase.getInstance().getReference().child("Total_cost").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
                     retreived_amount=Integer.parseInt(dataSnapshot.child("total_cost").getValue().toString());
-
                     subtotal.setText(""+retreived_amount);
 
 
+
+//////////////////calculating card discounts //////////////////******************************************************************************************************************
+
+                    fAuth= FirebaseAuth.getInstance();
+                    String uid =fAuth.getCurrentUser().getUid();
+                    db = FirebaseDatabase.getInstance().getReference().child("Payment1").child(uid);
+                    db.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.hasChildren()) {
+                                // number_pattern=Long.parseLong(dataSnapshot.child("cardnumber").getValue().toString());
+                                number_pattern=(dataSnapshot.child("cardnumber").getValue().toString());
+                                //calling the  calculating discount method  and assign the value to Cdiscount
+                                float amt1=retreived_amount;
+                                Cdiscount= calculating_card_discout(number_pattern,amt1);
+                                carddiscount.setText(""+"("+Cdiscount+")");
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                        }
+                    }); ///////////////////////////// calculating card discounts   end //////////
+
+
+
+
+
+
+
+
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
-
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-
-        }); ///////////////////////////// show   end //////////
-
-
-
-
-
+        });
         //////////////////******************retreiving  total amounts close*******************************//////////////
 
 
-//////////////////calculating card discounts //////////////////******************************************************************************************************************
-        /////////////////////////// show   satrt //////////
-        db = FirebaseDatabase.getInstance().getReference().child("Payment1").child(uid);
-        db.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChildren()) {
-                    // number_pattern=Long.parseLong(dataSnapshot.child("cardnumber").getValue().toString());
-                    number_pattern=(dataSnapshot.child("cardnumber").getValue().toString());
-
-                    //calling the  calculating discount method  and assign the value to Cdiscount
-                    Cdiscount= calculating_card_discout(number_pattern,retreived_amount);
-                    testdiscount=100;
-                    carddiscount.setText(""+testdiscount);
 
 
 
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
 
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
 
-        }); ///////////////////////////// show   end //////////
+
+
+
+
+
+
 
 
 
@@ -204,7 +204,6 @@ public class final_payment_Activity extends AppCompatActivity {
 
 
 ///////////////////////////////calculating loyality discounts start/////////////////////////////////////////////////
-
         /////////////////////////// show   satrt //////////
         db = FirebaseDatabase.getInstance().getReference().child("Loyality_points").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -212,23 +211,21 @@ public class final_payment_Activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
                     int  retreived_loyality_points=Integer.parseInt(dataSnapshot.child("loyality_points").getValue().toString());
-
                     loyality_amount= calculating_loyality_discout(retreived_loyality_points,retreived_amount);
-                    tloyalty.setText(""+loyality_amount);
+                    tloyalty.setText(""+"("+loyality_amount+")");
 
+                }else {
+                    float loyality_amount=0000 ;
+                    tloyalty.setText("" + "(" + loyality_amount + ")");
                 }
-
+                //calculating final amount of the bill
+                float tot=retreived_amount+delivery_charge-(testdiscount+loyality_amount);
+                final_amount11.setText(""+tot);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-
         }); ///////////////////////////// show   end //////////
-
-
-
 ///////////////////////////////calculating loyality discounts end /////////////////////////////////////////////////
 
 
@@ -249,25 +246,22 @@ public class final_payment_Activity extends AppCompatActivity {
 
 
         //****************************/////////calculating loyality points***********************************
-
-
         ///////////////////////////// show   satrt //////////
         db = FirebaseDatabase.getInstance().getReference().child("Loyality_points").child(uid);
-
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
                     loyality_points=Integer.parseInt(dataSnapshot.child("loyality_points").getValue().toString());
-
+                    if(loyality_points>=4){
+                        loyality_points=0;
+                    }
                     ////////////update  start////////////////
                     final_payment1btn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             fAuth= FirebaseAuth.getInstance();
                             String uid =fAuth.getCurrentUser().getUid();
-
-
                             DatabaseReference updRef = FirebaseDatabase.getInstance().getReference().child("Loyality_points");
                             updRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -280,13 +274,11 @@ public class final_payment_Activity extends AppCompatActivity {
                                             cus_points.setLoyality_points(total_points);
                                             db = FirebaseDatabase.getInstance().getReference().child("Loyality_points").child(uid);
                                             db.setValue(cus_points);
-
                                             ////////////add dialog box
                                             AlertDialog.Builder builder =new AlertDialog.Builder(final_payment_Activity.this);
                                             builder.setCancelable(true);
                                             builder.setTitle("Thank you");
                                             builder.setMessage("You have Successfully Ordered");
-
                                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -296,8 +288,6 @@ public class final_payment_Activity extends AppCompatActivity {
                                                 }
                                             });
                                             builder.show();
-
-
                                         } catch (NumberFormatException e) {
                                         }
                                     }
@@ -312,11 +302,6 @@ public class final_payment_Activity extends AppCompatActivity {
 
 
                     });
-
-
-
-
-
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
@@ -353,13 +338,11 @@ public class final_payment_Activity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
 
-
-
-
-
                         }
 
                     });
+
+
                     //////////////////////insert end //////////////////***********************************
                 }//////big else close
                 /////////////////////////  show  end///////////////////////
@@ -375,20 +358,14 @@ public class final_payment_Activity extends AppCompatActivity {
 
 
 
-        System.out.println("retreived_amount:"+retreived_amount);
 
-        System.out.println("delivery_charge:"+delivery_charge);
-
-        System.out.println("Cdiscount:"+Cdiscount);
-
-        System.out.println("loyality_amount:"+loyality_amount);
 
 
 
        // display_total=(retreived_amount+delivery_charge)-(Cdiscount+loyality_amount);
 
 
-        final_amount11.setText(""+1320);
+
 
     }///on create bracket
 
@@ -401,7 +378,7 @@ public class final_payment_Activity extends AppCompatActivity {
         if(province.equals("Western")){
             totalp=100;
         }else if(province.equals("Central")){
-            totalp=200;
+            totalp=215;
         }else if(province.equals("Northern")){
             totalp=200;
         }else if(province.equals("Eastern")){
@@ -424,21 +401,22 @@ public class final_payment_Activity extends AppCompatActivity {
     public float calculating_loyality_discout(int points,float amount){
 
         float amt=0;
-        if(points>=2){
-            amt=  amount*10/100;
-
+        if(points>=4){
+            amt=  amount*5/100;
         }else{
             amt= 0;
         }
-
         return amt;
-
     }
+
 
 
 
     //calculating  card discount
     public float calculating_card_discout(String cardnumber,float amount){
+
+        System.out.println("rrrrrrrrrrreeeeeeeeeeeew  :kkkkkk : jj :   "+amount);
+
         float amt=0;
         Pattern p = Pattern.compile("1234");
 
