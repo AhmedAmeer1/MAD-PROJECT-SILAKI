@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -22,10 +23,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
 import java.util.Calendar;
 
 
-public class Address extends AppCompatActivity {
+public class Address  extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public void gotopayment(View v){
         Intent packageContent = null;
@@ -39,20 +52,33 @@ public class Address extends AppCompatActivity {
         startActivity(i1);
     }
 
+    Spinner spinner;
+
     EditText txtAddress,txtState,txtCity,txtPostal,txtDate;
     Button address_confirm;
     DatabaseReference db;
     Delivery d;
     FirebaseAuth fAuth;
+    String item;
+    Member member;
 
     int mYear,mMonth,mDay;
 
+
+    String[] province = {"Choose province","Western","Northern","Central","Eastern","Colombo","Northern","North Western","Sabaragamuwa","Uva"};
+
+
+
+    //on create starts//////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
 
         txtAddress = findViewById(R.id.address);
+
+        spinner = findViewById(R.id.spinner1);
+        spinner.setOnItemSelectedListener(this);
 
         txtCity = findViewById(R.id.city);
         txtPostal = findViewById(R.id.postal);
@@ -61,8 +87,15 @@ public class Address extends AppCompatActivity {
 
         address_confirm = findViewById(R.id.address_confirm);
 
+        spinner = findViewById(R.id.spinner1);
+        spinner.setOnItemSelectedListener(this);
+          member = new Member();
 
 
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,province);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(arrayAdapter);
 
         d = new Delivery();
         fAuth= FirebaseAuth.getInstance();
@@ -110,12 +143,6 @@ public class Address extends AppCompatActivity {
                     txtDate.setText(dataSnapshot.child("deliverydate").getValue().toString());
 
 
-
-
-
-
-
-
                     ////////////update  start////////////////
                     address_confirm.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -144,30 +171,20 @@ public class Address extends AppCompatActivity {
                                             d.setCity(txtCity.getText().toString().trim());
                                             d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
                                             d.setDeliverydate(txtDate.getText().toString().trim());
-
-
                                             db = FirebaseDatabase.getInstance().getReference().child("Delivery").child(uid);
                                             db.setValue(d);
-
 
                                             clearControls();
 
                                             Intent packageContent = null;
                                             Intent intent15= new Intent(Address.this,payment.class);
                                             startActivity(intent15);
-
-
-
-
-
                                         } catch (NumberFormatException e) {
 
-                                        }
-
+                                       }
                                     }
                                     else
-                                        Toast.makeText(getApplicationContext(),"No source to update",Toast.LENGTH_SHORT).show();
-
+                                       Toast.makeText(getApplicationContext(),"No source to update",Toast.LENGTH_SHORT).show();
                                 }
 
                                 private void clearControls() {
@@ -207,18 +224,10 @@ public class Address extends AppCompatActivity {
 
                     });
                     ///////////////////update end /////////////
-
-
-
-
-
-                }
+               }
                 else
-                    Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
-
-
-
-                /////////////////insert start/////////////////////////***********************
+                   Toast.makeText(getApplicationContext(),"No Source to Display",Toast.LENGTH_SHORT).show();
+               /////////////////insert start/////////////////////////***********************
                 address_confirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -234,35 +243,47 @@ public class Address extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Please Enter Postal Code", Toast.LENGTH_SHORT).show();
                             else if (TextUtils.isEmpty(txtDate.getText().toString()))
                                 Toast.makeText(getApplicationContext(), "Please Enter Expected Delivery Date", Toast.LENGTH_SHORT).show();
-                            else {
+                            else if (item =="Choose province"){
+                                Toast.makeText(getApplicationContext(), "Please select Province", Toast.LENGTH_SHORT).show();
+                            }else {
                                 fAuth=FirebaseAuth.getInstance();
                                 String uid =fAuth.getCurrentUser().getUid();
 
+
+
+
                                 d.setId(uid);
                                 d.setAddress(txtAddress.getText().toString().trim());
-                                //d.setState(txtState.getText().toString().trim());
+                                d.setState(item);
                                 d.setCity(txtCity.getText().toString().trim());
                                 d.setPostalcode(Integer.parseInt(txtPostal.getText().toString().trim()));
                                 d.setDeliverydate(txtDate.getText().toString().trim());
 
-
-
-
                                 db.child(uid).setValue(d);
+
+                                //SaveValue(item);
+
+
+
+//                                else {
+//                                    // fAuth= FirebaseAuth.getInstance();
+//                                    // String uid =fAuth.getCurrentUser().getUid();
+//                                    db = FirebaseDatabase.getInstance().getReference().child("Province");
+//                                    member.setProvince(item);
+//                                    db.child(uid).setValue(member);
+//
+//                                    db.child(uid).setValue(d);
+//
+//                                }
 
                                 Intent i1 = new Intent(Address.this,payment.class);
                                 startActivity(i1);
-
                                 //Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
-
-
                             }
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-
                     }
-
                     private void clearControls() {
                         txtAddress.setText("");
                         ///txtState.setText("");
@@ -295,6 +316,49 @@ public class Address extends AppCompatActivity {
 
 
     }
+
+
+
+    ///////assigining  item
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//        Toast.makeText(this,adapterView.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+        item = spinner.getSelectedItem().toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+
+
+
+    //insert province
+    void SaveValue(String item){
+        if (item =="Choose province"){
+            Toast.makeText(this,"Please select Province",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            fAuth= FirebaseAuth.getInstance();
+            String uid =fAuth.getCurrentUser().getUid();
+            db= FirebaseDatabase.getInstance().getReference().child("Province");
+            member.setProvince(item);
+            db.child(uid).setValue(member);
+
+
+            Toast.makeText(this,"Value Saved",Toast.LENGTH_SHORT).show();
+
+
+            //Intent i11 = new Intent(checkout.this,Address.class);
+           // startActivity(i11);
+
+
+        }
+    }
+    ///insert  province  end
+
+
 
 
 }
