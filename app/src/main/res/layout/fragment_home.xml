@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     android:background="@color/colorBg"
-    android:id="@+id/homeLayout"
     >
 
     <Button
@@ -14,15 +13,14 @@
         android:layout_width="160dp"
         android:layout_height="154dp"
         android:background="#FFFFFF"
-        android:drawableTop="@drawable/skin1"
+        android:drawableTop="@drawable/cream"
         android:text="SKIN CARE"
-        android:textColor="#48a84c"
+        android:textColor="#8ABF1AD1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/button9"
-
-        app:layout_constraintTop_toBottomOf="@+id/medicine"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
         app:layout_constraintVertical_bias="0.115" />
 
     <View
@@ -33,7 +31,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/bkimg"
+        android:background="@drawable/back1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -48,9 +46,9 @@
         android:layout_width="160dp"
         android:layout_height="154dp"
         android:background="#FFFFFF"
-        android:drawableTop="@drawable/vit"
+        android:drawableTop="@drawable/household"
         android:text="Vitamins  and Nutritions"
-        android:textColor="#48a84c"
+        android:textColor="#8ABF1AD1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.107"
@@ -63,9 +61,9 @@
         android:layout_width="160dp"
         android:layout_height="154dp"
         android:background="#FFFFFF"
-        android:drawableTop="@drawable/mask1"
+        android:drawableTop="@drawable/personal"
         android:text="PERSONAL CARE"
-        android:textColor="#48a84c"
+        android:textColor="#8ABF1AD1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.107"
@@ -74,13 +72,13 @@
         app:layout_constraintVertical_bias="0.115" />
 
     <Button
-        android:id="@+id/medicine"
+        android:id="@+id/button8"
         android:layout_width="160dp"
         android:layout_height="154dp"
         android:background="#FFFFFF"
-        android:drawableTop="@drawable/pills"
+        android:drawableTop="@drawable/pill"
         android:text="MEDICINES"
-        android:textColor="#48a84c"
+        android:textColor="#8ABF1AD1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -90,13 +88,13 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="244dp"
-        android:layout_height="38dp"
+        android:layout_width="184dp"
+        android:layout_height="25dp"
         android:bufferType="normal"
         android:text="SRI-PHARMACY"
         android:textAllCaps="true"
-        android:textColor="#1E54F6"
-        android:textSize="26sp"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="sans"
         app:drawableTint="#FFFFFF"
@@ -105,25 +103,25 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.205" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="224dp"
-        android:layout_height="195dp"
-        android:src="@drawable/q1"
+        android:layout_width="132dp"
+        android:layout_height="111dp"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.091" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="358dp"
         android:layout_height="121dp"
-        android:src="@drawable/footernew"
+        android:src="@drawable/footer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
